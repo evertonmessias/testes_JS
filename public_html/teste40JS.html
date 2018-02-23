@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>EVENTOS TECLADO E FORM</title>
+<meta charset="UTF-8">
+
+<style type="text/css">
+body{font-family:Arial; }
+#titulo{display:block;position:relative;width:250px;height:50px;line-height:50px;margin:0 auto;top:50px;margin-bottom:20px;background-color:silver;text-align:center; }
+fieldset{display:block;position:relative;margin:0 auto;top:50px; width: 230px;}
+label{display:block;position:relative; background-color:silver;float:left; width: 70px;height:20px;padding:1px;text-align: left;}
+input{display:block;position:relative;float:right; width: 135px;}::placeholder{color: #696969;}
+.botao{display:inline-block;position:relative; margin-left: 35px;}
+</style>
+
+<script src="./jquery.js"></script>
+<script src="./teste40JS.js"></script>
+
+
+</head>
+<body>
+
+<div id="titulo" >EVENTOS TECLADO E FORM</div>
+
+<form id="form">
+
+<fieldset><legend><strong>Formulario</strong></legend>
+
+
+<br><label for="nome">&nbsp;Nome&emsp;</label>	<input type="text" id="nome" name="nome" maxlength="15" placeholder="Digite seu NOME" autofocus /><br>
+
+<br><label for="email">&nbsp;E-Mail&emsp;</label>	<input type="text" id="email" name="email" maxlength="15" placeholder="Digite seu E-MAIL" /><br>
+
+<br><label for="telefone">&nbsp;Telefone&emsp;</label>	<input type="text" id="telefone" name="telefone" maxlength="15" placeholder="Digite seu TELEFONE"/><br>
+
+<br><textarea id="msg" name="msg" rows="3" cols="26" placeholder="Escreva sua MENSAGEM" /></textarea>
+ 
+<br><br>
+
+<button type="button" class="botao" id="botao1">Enviar</button>
+<button type="reset" class="botao" id="botao2" onclick="location.reload();">Apagar</button>
+
+<br><br>
+
+</fieldset>
+
+</form>
+</body>
+</html>

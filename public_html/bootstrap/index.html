@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Calculadora de Empréstimos</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body  >
+
+	<div class="container-contact100">
+		
+			<div class="wrap-contact100">
+			<form onsubmit="return false" class="contact100-form validate-form" id="form">
+				<span class="contact100-form-title">
+					CÁLCULO DE EMPRÉSTIMOS FINANCEIROS
+				</span>
+<!--=====================================MESES================================================-->
+				<div class="wrap-input100 validate-input" data-validate = "Digite a quantidade de meses">
+					<label class="label-input100" for="cmeses">
+						<img src="images/icons/symbol-mon.png" alt="SYMBOL-1">
+					</label>
+					<input id="cmeses" class="input100" type="number" min="0" max="120" step="1" name="tmeses" placeholder="QUANTOS MESES ?">
+					<span class="focus-input100"></span>
+				</div>
+<!--=====================================JUROS===================================================-->
+				<div class="wrap-input100 validate-input" data-validate = "Digite a taxa de juros mensal">
+					<label class="label-input100" for="cjuros">
+						<img src="images/icons/symbol-tax.png" alt="SYMBOL-2">
+					</label>
+					<input id="cjuros" class="input100" type="number" min="0" max="100" step="0.01" name="tjuros" placeholder="QUAL A TAXA DE JUROS ?">
+					<span class="focus-input100"></span>
+				</div>
+<!--======================================PRESTAÇÃO===================================================-->				
+				<div class="wrap-input100 validate-input" data-validate = "Digite o valor da prestação mensal">
+					<label class="label-input100" for="cvalor">
+						<img src="images/icons/symbol-val.png" alt="SYMBOL-3">
+					</label>
+					<input id="cvalor" class="input100" type="number" min="0" max="9999" step="0.01" name="tvalor" placeholder="QUAL O VALOR DA PRESTAÇÃO ?">
+					<span class="focus-input100"></span>
+				</div>
+<!--======================================BOTÃO===================================================-->				
+
+				<div class="container-contact100-form-botton">
+				
+				<div class="container-contact100-form-btn">
+					<button id="botao" onclick="calcular();" class="contact100-form-btn">
+						OK
+					</button>
+					</div>
+					</div></form>
+<!--======================================RESPOSTA===================================================-->	
+				
+				<div class="container-contact100-form-resp">
+					<h4 id="resposta">TOTAL</h4>
+				</div>			
+			
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+<!--===============================================================================================-->
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'UA-23581568-13');
+	</script>
+</body>
+</html>

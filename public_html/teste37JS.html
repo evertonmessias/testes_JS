@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AJAX</title>
+<meta charset="UTF-8">
+
+<style type="text/css">
+body{font-family: Arial;}
+#mensagem{border:1px solid red;width: 230px;position: relative;margin:0px auto;top: 20px;margin-bottom:-40px;padding: 10px;display: none;}
+.texto{color:red;text-align: center;}
+fieldset{display:block;position:relative;margin:0px auto;top:150px; width: 230px;}
+label{display:block;position:relative; background-color:silver;float:left; width: 70px;height:20px;padding:1px;text-align: left;}
+input{display:block;position:relative;float:right; width: 140px;}::placeholder{color: #696969;}
+button{display:block;position:relative; margin: 0px auto;}
+</style>
+
+<script src="./jquery.js"></script>
+
+
+<script type="text/javascript">
+$(function () {
+	
+	$("#botao").click(function () {
+	
+		if ($("#user").val() == "" || $("#pass").val() == "") {				
+		$("#user").attr("placeholder","ERRO!!");$("#pass").attr("placeholder","ERRO!!");			
+		$("#mensagem")
+			.html("Digite os Campos")
+			.slideDown(500)
+			.addClass("texto");		
+		}
+	});
+	
+	$("#user").click(function () {
+		$("#mensagem").slideUp(250);$("#user").attr("placeholder","");	
+	});
+	
+	$("#pass").click(function () {
+		$("#mensagem").slideUp(250);$("#pass").attr("placeholder","");	
+	});
+	
+	$("#mensagem").click(function () {
+		$(this).slideUp(250);	
+	});
+})
+
+</script> 
+</head>
+<body>
+
+<div id="mensagem"><p class="texto">Mensagens de Erro</p></div>
+
+<form id="form1">
+
+<fieldset><legend>AJAX</legend>
+
+
+<br><br><label for="user">&nbsp;Usuario&emsp;</label>
+
+<input type="text" id="user" name="user" maxlength="15" placeholder="seu usuario" />
+
+<br><br><label for="pass">&nbsp;Senha&emsp;</label>
+
+<input type="password" id="pass" name="pass" maxlength="8" placeholder="sua senha" />
+ 
+<br><br><br>
+
+<button type="button" id="botao">Enviar</button>
+
+<br>
+
+</fieldset>
+
+</form>
+</body>
+</html>

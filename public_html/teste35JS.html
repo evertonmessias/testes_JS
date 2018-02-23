@@ -1,0 +1,97 @@
+<html>
+<head>
+<meta charset="UTF-8"/>
+
+<script src="./jquery.js" ></script>
+
+<style type="text/css">
+	
+	*{margin: 0; padding: 0;}
+
+	body{	font-family: Arial;	font-size: 20px;	background-color: #fff;}		
+	
+	#site{    position: relative;    top: 20px;    background: #fff;    width: 1000px;    height: 2500px;    margin:0px auto;    padding: 20px 10px 1px 10px;    box-shadow: 0px 0px 10px black;    }
+    
+   #banner{position: relative;display: block;width: 100%;height: 150px;line-height:150px; margin: 0 auto;background-color: #bbb;color: #fff;text-align: center;margin-bottom: 10px;}
+    
+   .menu-fixo{z-index: 999;position: fixed;top: 0px;}
+
+	.menu{background-color: #394EED;	border:1px solid #c0c0c0;	float:left;	margin-left: 350px;}
+	
+	.menu li{z-index: 999;	list-style:none;	position:relative;	float:left;	border-right:1px solid #c0c0c0;	width:150px;height: 30px;	}
+		
+	.menu li a{	color:#333;	text-decoration:none;	padding:5px 10px;	display:block;	}
+
+	.menu li a:hover{	background:#333;	color:#fff;	}
+	
+	.menu li ul{	position:absolute;	top:30px;	left:0;	background-color:#fff;	display:none;	}
+	
+	/*.menu li:hover ul, .menu li.over ul{display:block;} */
+	
+	.menu li ul li{	border:1px solid #c0c0c0;	display:block;	width:150px;	}
+	
+	section{position: relative;display: block;width: 100%;height: 250px;line-height:250px; margin: 0 auto;background-color: #ddd;color: #000;text-align: center;margin-top: 50px;}
+
+
+</style>
+
+<script type="text/javascript" >
+
+$(function () {	
+	var nav = $('nav');		
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 200) {nav.addClass("menu-fixo");}
+		else {nav.removeClass("menu-fixo");}});		
+	$('li').hover(function (){$('ul', this).slideDown(300);},function (){$('ul', this).slideUp(300);});
+});	
+
+</script>
+
+</head>
+<body>
+
+<div id="site">
+
+<header>
+
+<div id="banner">
+
+<hgroup><h3>Menu Ex.</h3></hgroup>
+
+</div>
+
+<nav>
+
+<ul class="menu">
+
+<li> <a href="#" >Item 01</a> </li>
+
+<li> <a href="#" >Item 02</a>
+
+	<ul>
+	
+		<li> <a href="#" >Sub-Item 01</a> </li>	
+		<li> <a href="#" >Sub-Item 02</a> </li>
+		<li> <a href="#" >Sub-Item 03</a> </li>
+			
+	</ul>
+
+
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+<section>Noticias 1</section>
+
+<section>Noticias 2</section>
+
+<section>Noticias 3</section>
+
+</div>
+
+</body>
+</html>

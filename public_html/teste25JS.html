@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: yellow;
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+}
+</style>
+<body>
+
+<p>
+<button onclick="descer()">Play</button>&emsp;<button onclick="location.reload()">Stop</button>
+</p> 
+
+<div id ="container">
+<div id ="animate"></div>
+</div>
+
+<script>
+var elem = document.getElementById("animate");  //captura o quadro css vermelho
+var tempo = 5;
+function descer() {
+  var pos = 0;
+  var id1 = setInterval(frame1, tempo); // tempo em  segundos 
+  function frame1() {
+    if (pos == 350) {
+      clearInterval(id1); 
+      esquerda();
+    } else {
+      pos++; 
+      elem.style.top = pos + 'px'; 
+      elem.style.left = pos + 'px';}}}
+
+function esquerda(){
+  var pos = 350;
+  var id2 = setInterval(frame2, tempo); // tempo em  segundos 
+  function frame2() {
+    if (pos == 0) {
+      clearInterval(id2); 
+      subir();
+    } else {
+      pos--; 
+      elem.style.left = pos + 'px'; }}}
+
+function subir(){
+  var posT = 350;var posL = 0;
+  var id3 = setInterval(frame3, tempo); // tempo em  segundos 
+  function frame3() {
+    if (posT == 0) {
+      clearInterval(id3); 
+      esquerda2();
+    } else {
+      posT--; posL++;
+      elem.style.top = posT + 'px'; 
+      elem.style.left = posL + 'px';}}}
+      
+function esquerda2(){
+  var pos = 350;
+  var id4 = setInterval(frame4, tempo); // tempo em  segundos 
+  function frame4() {
+    if (pos == 0) {
+      clearInterval(id4); 
+      descer();
+    } else {
+      pos--; 
+      elem.style.left = pos + 'px';}}}
+
+</script>
+
+</body>
+</html>

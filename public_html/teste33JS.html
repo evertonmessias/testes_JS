@@ -1,0 +1,141 @@
+<html>
+<head>
+<meta charset="UTF-8"/>
+
+<script src="./jquery.js" ></script>
+
+<script>
+
+function animate1(){
+	$("#p6").animate({    // animate ( {parametrosCSS} , duração )
+		
+	width:"100px",
+	fontSize:"2px",
+	paddingLeft:"300px"	
+		
+	},
+	1000);
+}
+
+function animate2(){
+	$("#p6").animate({    // animate ( {parametrosCSS} , duração )
+		
+	width:"1000px",
+	fontSize:"16px",
+	paddingLeft:"0px"	
+		
+	},
+	1000);
+}
+
+
+
+</script>
+
+
+<style type="text/css">
+body{font-family: Arial;}
+#bloco{position: relative;display: block;margin: 0 auto;width: 500px;top: 20px;}
+#bloco a{
+position: relative;display: block;margin: 0 auto;
+width: 500px;height: 50px;line-height: 50px;
+background-color: #aaa;border:1px solid black;
+text-decoration: none;text-align: center;color: #fff;font-weight: bold;
+}
+#bloco p{
+position: relative;display: none;margin: 0 auto;
+width: 480px;
+background-color: #fff;border:1px solid black;
+text-decoration: none;text-align: justify;
+padding: 10px;
+}
+</style>
+
+
+
+</head>
+<body>
+
+<div id="bloco">
+
+<a href="#" title="Clique" onclick="$('#p01').slideToggle(1000)">NOTICIAS 1</a> <!-- toggle, slideToggle , fadeToggle -->
+<p id="p01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint  occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<a href="#" title="Clique" onclick="$('#p02').slideToggle(1000)">NOTICIAS 2</a> <!-- toggle, slideToggle , fadeToggle -->
+<p id="p02">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint  occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+</div>
+
+<!-- ************************************************************************************************* -->
+
+<br><br><br><br>
+
+<hr>
+<h2>Outros (sem CSS)</h2>
+
+<p><a href="#" title="click / double click" onclick="$('#p2').slideDown(1000)" ondblclick="$('#p2').slideUp(1000)" > MOSTRA / ESCONDE (com SLIDE) </a></p>
+
+<p id="p2" style="display:none;" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br>
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud<br>
+ exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in <br>
+ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint <br>
+ occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
+</p>
+
+<br><br><br>
+
+<p><a href="#"  onclick="$('#p3').show(1000)"> MOSTRA com SHOW </a></p>
+
+<p id="p3" style="display:none;" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br>
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud<br>
+ exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in <br>
+ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint <br>
+ occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
+
+<a href="#" onclick="$('#p3').hide(1000, function(){alert('LIDO OK');})" > ESCONDE </a>
+</p>
+
+<br><br><br>
+
+<p><a href="#" onclick="$('#p4').fadeIn(1000)"> MOSTRA com FADE </a></p>
+
+<p id="p4" style="display:none;" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br>
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud<br>
+ exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in <br>
+ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint <br>
+ occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
+
+<a href="#" onclick="$('#p4').fadeOut(1000)" > ESCONDE </a>
+</p>
+
+<br><br><br>
+
+<p><a href="#" onclick="$('#p5').fadeTo(1000, 0.5)"> FADE OPACIDADE </a></p>
+
+<p id="p5" style="display:none;" >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br>
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud<br>
+ exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in <br>
+ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint <br>
+ occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
+
+<a href="#" onclick="$('#p5').fadeOut(1000)" > ESCONDE </a>
+</p>
+
+<br><br><br>
+
+<p><a href="#" onclick="animate1();"> ANIMATE1 </a> &emsp; <a href="#" onclick="animate2();"> ANIMATE2 </a></p>
+
+<p id="p6">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do <br>
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud<br>
+ exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in <br>
+ reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint <br>
+ occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<br>
+</p>
+
+
+
+
+</body>
+</html>

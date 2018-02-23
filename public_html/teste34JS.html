@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta charset="UTF-8"/>
+<script src="jquery.js" ></script>
+
+<style type="text/css">
+.fundo{background-color: yellow;}
+</style>
+
+<script type="text/javascript" >
+
+
+// ********** MAIS EVENTOS EM : https://api.jquery.com/category/events
+
+
+$(function () {
+	
+$("#btadd").click(function () {
+	
+	var tag = $("#campo").val();
+	
+	$(tag).addClass("fundo");	
+	
+});
+
+$("#btadd").dblclick(function () {
+	
+	var tag = $("#campo").val();
+	
+	$(tag).removeClass("fundo");	
+	
+});
+
+})
+
+</script>
+
+</head>
+<body>
+
+<form>
+
+<input type="text" id="campo" size="10" />&ensp;<input type="button" id="btadd" value="addClass" />
+
+</form>
+
+<h1>asdfasdfasd</h1>
+
+<p>asdfasdfasdfasdfasdf</p>
+
+</body>
+</html>

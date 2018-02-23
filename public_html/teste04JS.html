@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8"/>
+<title> Eq 2º Grau </title>
+
+<style type="text/css">
+fieldset{width: 200px;display:block;position:relative;margin: 0px auto;text-align:center; }
+input{width: 50px;}
+</style>
+
+<script type="text/javascript" >
+function eq2grau() {
+var eq = document.getElementById("eq");
+if (eq.a.value != "" && eq.b.value != "" && eq.c.value != "") {
+var a,b,c,delta,x1,x2;
+a = parseFloat(eq.a.value);b = parseFloat(eq.b.value);c = parseFloat(eq.c.value);
+delta = ((Math.pow(b,2)) - (4 * a * c));
+document.getElementById("delta").innerHTML = delta;
+if (delta >= 0) {
+x1 = ((((-1 * b) + (Math.sqrt(delta))) / (2 * a))).toFixed(2) ;
+x2 = ((((-1 * b) - (Math.sqrt(delta))) / (2 * a))).toFixed(2);
+}else {x1 = x2 = "Não existe raiz real";}
+document.getElementById('x1').innerHTML = x1;
+document.getElementById('x2').innerHTML = x2;
+}}
+</script>
+
+<body>			
+<form id="eq" onsubmit="return false"> 
+  <fieldset><legend>Equação do 2º Grau</legend>
+        <h4>Formato&nbsp;:&nbsp;Ax<sup>2</sup>&nbsp;+&nbsp;Bx&nbsp;+&nbsp;C&nbsp;=&nbsp;0</h4>
+        <p><label>Termo&nbsp;A&nbsp;:&nbsp;</label><input type="number" name="a" required /> </p>
+        <p><label>Termo&nbsp;A&nbsp;:&nbsp;</label><input type="number" name="b" required /> </p>
+		  <p><label>Termo&nbsp;A&nbsp;:&nbsp;</label><input type="number" name="c" required /> </p>
+		  <p><input type="button" onclick="eq2grau();" value="OK"/></p>
+		  <h4>Resposta&nbsp;:&nbsp;</h4>
+        <p><label>&#916;&ensp;=&ensp;</label><span id="delta"></span></p>
+        <p><label>X1&ensp;=&ensp;</label><span id="x1"></span></p>
+        <p><label>X2&ensp;=&ensp;</label><span id="x2"></span></p>                
+ </fieldset><br>
+ </form>
+</body>
+</html>

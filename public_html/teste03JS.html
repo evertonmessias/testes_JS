@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title> media </title>
+        
+       
+        <script>    
+
+function calcular(){
+    var qtd = parseInt(document.getElementById('Qtd').value);
+    tot = qtd * 1500;
+    document.getElementById('Tot').innerHTML = tot;
+}
+			</script>
+			</head>
+			<body>
+			
+<h3>Preço de Venda</h3>
+
+<form oninput="calcular();">
+ 
+ 
+  <fieldset><legend>Total a Pagar</legend>
+        
+        <p><label>Quantidade  :   </label><input type="number" id="Qtd" value="0" min="0" max="10"/> </p>
+        <p><label>Preço Total: R$ </label><span id="Tot">&nbsp;</span></p>
+        
+ </fieldset><br>
+  
+  
+  </form>
+</body>
+ 
+  </html>

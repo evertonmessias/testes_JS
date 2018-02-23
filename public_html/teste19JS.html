@@ -1,0 +1,14 @@
+<html><head><title>RESOLUÇÃO DA TELA</title>
+<meta charset="UTF-8"/>
+<script>
+function myFunction()	{
+		var w = window.innerWidth;
+		var h = window.innerHeight;
+		var x = window.document.getElementById("paragrafo"); 			
+		x.innerHTML="<h1>Largura: " + w + " Altura: " + h + "</h1>";}
+</script>
+</head>
+<body>
+	<p id="paragrafo">Clique no botão para exibir a altura e largura dessa janela (Não incluindo toolbars e scrollbars).</p>
+	<button onclick="myFunction()">TENTE ISSO</button>
+</body></html>

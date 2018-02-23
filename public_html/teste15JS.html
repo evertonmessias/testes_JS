@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Valida Tudo</title>
+<meta charset="UTF-8">
+
+<style type="text/css">
+fieldset{width: 230px;}
+label{display:block;position:relative; background-color:silver;float:left; width: 70px;height:20px;padding:1px;text-align: left;}
+input{display:block;position:relative;float:right; width: 140px;}::placeholder{color: #696969;}
+button{display:block;position:relative; margin: 0px auto;}
+</style>
+
+<script src="./jsvalidador.js"> // atualizado dia 25/01/2018</script> 
+
+<script src="./teste15JS.js"></script>
+
+</head>
+<body>
+
+<form id="form1">
+
+<fieldset><legend>VALIDAÇÕES</legend>
+
+
+<br><br><label for="rg">&nbsp;RG&emsp;</label>
+
+<input type="text" id="rg" name="rg" onKeyPress="MascaraRG(form1.rg);" maxlength="12" placeholder="00.000.000-0" />
+
+
+<br><br><label for="mail">&nbsp;E-Mail&emsp;</label>
+
+<input type="text" id="mail" name="mail" onBlur="ValidaMail(form1.mail);" placeholder="usuario@dominio.com" />
+
+
+
+<br><br><label for="cep">&nbsp;CEP&emsp;</label>
+
+<input type="text" id="cep" name="cep" onKeyPress="MascaraCep(form1.cep);" maxlength="10" onBlur="ValidaCep(form1.cep);" placeholder="00.000-000" />
+ 
+ 
+
+<br><br><label for="data">&nbsp;Data&emsp;</label>
+
+<input type="date" id="data" name="data" /> <!-- Melhor type=data !... // onKeyPress="MascaraData(form1.data);" maxlength="10" onBlur= "ValidaData(form1.data);" placeholder="00/00/0000" -->
+ 
+ 
+
+<br><br><label for="tel">&nbsp;Cel&emsp;</label>
+
+<input type="tel" id="tel" name="tel" onKeyPress="MascaraTelefone(form1.tel);" maxlength="15" onBlur="ValidaTelefone(form1.tel);" placeholder="(00) 00000-0000" />
+
+
+
+<br><br><label for="cpf">&nbsp;CPF&emsp;</label>
+
+<input type="text" id="cpf" name="cpf" onKeyPress="MascaraCPF(form1.cpf);" maxlength="14" onBlur="ValidarCPF(form1.cpf);" placeholder="000.000.000-00" />
+
+
+<!--
+<br><br><label for="cnpj">CNPJ&emsp;</label>
+
+<input type="text" id="cnpj" name="cnpj" onKeyPress="MascaraCNPJ(form1.cnpj);" maxlength="18" onBlur="ValidarCNPJ(form1.cnpj);" placeholder="00.000.000/0000-00" >
+-->
+
+
+<br><br><br>
+
+<button type="button" id="botao" onclick="enviar();">ENVIAR</button>
+
+<br>
+
+</fieldset>
+
+</form>
+</body>
+</html>
