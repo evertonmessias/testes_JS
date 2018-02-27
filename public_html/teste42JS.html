@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Album</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <script src='jquery.js'></script>
+
+<style>
+            #gal{
+  display: none; /* jQ will make visible */
+  position: fixed;
+  z-index: 99999;
+  top:0; left:0; right:0; bottom:0;
+  margin: 50px;
+  background: no-repeat #444 none 50% / cover;
+  box-shadow: 0 5px 10px -3px rgba(0,0,0,0.9),  0 0 0 5000px rgba(0,0,0,0.6);
+}
+#gal:after{
+  pointer-events: none;
+  content : "×";
+  position: absolute;
+  right: -30px;
+  top: -40px;
+  color: #fff;
+  font-size: 3em;
+}
+#gal > span{
+  display: none; /* jQ will make visible if >1 image*/
+  cursor: pointer;
+  background: rgba(255,255,255,0.7);
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+}
+#gal > span:nth-child(1){ left:0; }
+#gal > span:nth-child(2){ right:0; }
+           
+</style>
+        
+<script>
+            
+$(function(){
+    var $call = $("[data-gallery]"),
+    $gal = $('<div/>',{id:"gal", html:"<span/><span/>"}),
+    $btn = $gal.find("span"), img, n, c, hov=0;
+
+$('body').prepend($gal);
+
+// SHOW GALLERY || CHANGE IMAGE
+function galleryAnim() {
+  $gal.stop().slideDown(300).css({backgroundImage: "url("+img[c]+")"});
+}
+
+// THUMBNAIL CLICK
+$call.click(function() {
+  img = JSON.parse(this.dataset.gallery); // Creates an Array of images
+  n = img.length; // Get total images
+  c = 0;          // Reset Counter
+  $btn[n>1?"show":"hide"](); // show||hide prev/next btns
+  galleryAnim();
+});
+
+// PREV NEXT BUTTONS
+$btn.click(function() { 
+  c = ($(this).index()>0 ? ++c : --c)<0 ? n-1 : c%n; // Loop Counter
+  galleryAnim();
+});
+
+// HIDE GALLERY IF EXOCLICK
+$gal.hover(function() { hov ^= 1; });
+$(document).mousedown(function() {
+  if (!hov) $gal.slideUp(300);
+});  
+
+});     
+
+</script>
+ 
+    </head>
+    <body>
+       
+        <figure data-gallery='[
+    "0.jpg",
+    "1.jpg",
+    "2.jpg",
+    "3.jpg",
+    "4.jpg"
+]'>  
+       
+            <img alt="" src="0.jpg" >
+            <img alt="" src="1.jpg" >
+            <img alt="" src="2.jpg" >
+            <img alt="" src="3.jpg" >
+            <img alt="" src="4.jpg" >
+            
+            
+            
+        </figure>
+        
+    </body>
+</html>
