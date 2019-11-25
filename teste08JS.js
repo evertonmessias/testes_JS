@@ -24,3 +24,4 @@ var Dados = { 				// array associativo , veja + em 11
 
 for (var lista in Dados){ // lista é como se fosse os índices do vetor ; 0,1,2
 document.write(lista +" : "+ Dados[lista] + "<br>" );
+}
