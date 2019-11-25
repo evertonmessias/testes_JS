@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>EXERCÍCIOS DE FIXAÇÃO</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+/*
+    1) Monte um pequeno formulário que recebe o CPF de uma pessoa e submeta a uma
+    função JavaScript que faça a validação desse CPF. Faça esse exercício de duas
+    formas:
+    a) Usando função estática
+    b) Usando sintaxe literal
+*/
+    // função estática
+    function ex01a(){
+        var cpf = document.getElementById("input01").value;
+        validaCPF(cpf);
+    }
+    
+    // sintaxe literal
+    var ex01b = function(){
+        var cpf = document.getElementById("input01").value;
+        validaCPF(cpf);
+    }    
+    
+    function validaCPF(n){
+        // variável para mensagens de erro.
+        var err_msg = '';
+        // verifica se é valor numérico e se tamanho não excede 11 dígitos.
+        if(isNaN(n)){
+            err_msg = 'Formato de número inválido.';
+        }
+        else {
+            if(n.length > 11){
+                err_msg = "Número excede 11 dígitos.";
+            }
+        }
+        // caso formato ok, seguir para a validação dos DVs:
+        if(err_msg.length == 0){
+            // se necessário, acrescenta zeros à esquerta até completar 11 dígitos.
+            while(n.length < 11){
+                n = "0" + n;
+            }
+            // calcula valor do dv1 para [9 digitos]
+            // n  [0][1][2][3][4][5][6][7][8]
+            // j [10][9][8][7][6][5][4][3][2]
+            // inicia calculo de dv1
+            s = 0;
+            for(i = 0;i < 9;i++){
+                j = 10 - i;
+                s += (parseInt(n[i]) * j);
+            }
+            s = s % 11;
+            if(s < 2){
+                s = 0;
+            }
+            else {
+                s = 11 - s;
+            }
+            // verifica primeiro dígito verificador dv1
+            if(parseInt(n[9]) != s){
+                err_msg += 'Dígito verificador DV1 inválido.';
+            }
+            else {
+                // calcula valor de dv2 para [10 digitos]
+                // n  [0] [1][2][3][4][5][6][7][8][9]
+                // j [11][10][9][8][7][6][5][4][3][2]
+                // inicia calculo de dv2
+                s = 0;
+                for(i = 0;i < 10;i++){
+                    j = 11 - i;
+                    s += (parseInt(n[i]) * j);
+                }
+                s = s % 11;
+                if(s < 2){
+                    s = 0;
+                }
+                else {
+                    s = 11 - s;
+                }
+                if(parseInt(n[10]) != s){
+                    err_msg += 'Dígito verificador DV2 inválido.'
+                }
+            }
+        }
+        var div01 = document.getElementById("div01");
+        div01.innerHTML = 'O CPF ' + n + ' É ' + ((err_msg.length == 0)?'VÁLIDO!':'INVÁLIDO: ' + err_msg);
+    }
+
+
+
+/* 
+    2) Crie uma pequena aplicação que realiza o cálculo de numerologia do nome. 
+*/
+    function ex02(){
+        var s = document.getElementById("input02").value;
+        // converte tudo para UPERCASE
+        s = s.toUpperCase();
+        soma = 0;
+        strA = ""; // para exibição dos caracteres utilizados
+        strB = ""; // para exibição dos cálculos
+        // percorre cada caractere
+        for(i=0;i<s.length;i++){
+            // em vez de mapear os caracteres em um array, foi utilizado algotimo manipulando o valor dos caracteres na tabela ASCII
+            // algoritmo utilizado:
+            // caracteres fora da faixa A-Z são descartados (por exemplo, espaços)
+            // utilizando a tabela ASCII na faixa de A a Z (A = 65, B = 66, ..., Z=90)
+            // para caracteres de A a Z, subtraindo 64 teremos A = 1, B = 2, ..., Z=26
+            // usando módulo 9, teremos A = 1, B = 2, ..., Z=8
+            // Para os casos em que N%9=0, aplicar valor=9
+            // I=(73-64)%9=9%9=0 -> I=9; R=(82-64)%9=18%9=0 -> R=9; 
+            var p = s[i].charCodeAt(0);
+            if(p < 65 || p > 90){
+                console.log('caracter inválido: "'+s[i]+'"');
+            }
+            else {
+                // encontra valor conforme tabela exercicio 2:
+                p = (p - 64) % 9;
+                if(p == 0){
+                    p = 9;
+                }
+                strA += s[i] + " ";
+                if(strB.length > 0) {
+                    strB += "+"
+                }
+                strB += p;
+                soma += p;
+            }
+        }
+        strB += "=" + soma;
+        var result = parseInt(soma);
+        // enquanto valor da soma resultar mais de um dígito, reduzir até dar um
+        while(result > 9){
+            soma = result + "";
+            result = 0;
+            for(i = 0;i < soma.length;i++){
+                strB += ((i == 0)?"<br>":"+") + soma[i];
+                result += parseInt(soma[i]);
+            }
+            strB += "=" + result;
+        }
+        // Array com as 9 mensagens para result de 1 a 9. 
+        // Optou-se em utilizar result como índice do array e desprezar o índice 0
+        var mensagem = [];
+        mensagem[0] = '';
+        mensagem[1] = 'Liderança, Pioneirismo, Iniciativa, Coragem, Independência';
+        mensagem[2] = 'Tato, Diplomacia, Paciência, Cooperação, Companheirismo';
+        mensagem[3] = 'Criatividade, Comunicação, Expressão, Entusiasmo, Sociabilidade';
+        mensagem[4] = 'Disciplina, Ordem, Estabilidade, Construção, Confiança, Honestidade';
+        mensagem[5] = 'Liberdade, Curiosidade, Flexibilidade, Versatilidade, Inteligência';
+        mensagem[6] = 'Amor, Beleza, Equilíbrio, Família, Saúde, Justiça';
+        mensagem[7] = 'Espiritualidade, Introspecção, Profundidade, Perfeccionismo, Controle da Mente';
+        mensagem[8] = 'Liderança, Poder, Organização, Perseverança, Auto-confiança';
+        mensagem[9] = 'Amor Universal, Solidariedade';
+        // exibe resultado:
+        var div02 = document.getElementById("div02");
+            div02.innerHTML = strA + "<br>" + strB + "<br>"+'MENSAGEM = '+mensagem[result];
+    }
+    
+/* 
+    3) Faça uma pequena aplicação com um formulário que receba dois números inteiros, 
+    o menu de opções, calcule e exiba os itens abaixo:
+    - soma dos dois números;
+    - raíz quadrada do primeiro número;
+    - resultado da potencia do primeiro número elevado pelo segundo;
+    - exiba a faixa de números aleatórios gerados (faixa compreendida do primeiro número ao segundo).
+*/  
+    // Objeto MATEMATICA
+    var MATEMATICA = new Object();
+    MATEMATICA.numero1=0;
+    MATEMATICA.numero2=0;
+    MATEMATICA.resultado=null;
+    MATEMATICA.descricao="";
+    MATEMATICA.imprime=function (){
+        var div03 = document.getElementById("div03");
+        div03.innerHTML = this.descricao;
+    }
+    MATEMATICA.soma=function (){
+        try {
+            if (isNaN(parseInt(this.numero1))) { 
+                throw new Error("N1 inválido! Digitar somente números inteiros!");
+            }
+            if (isNaN(parseInt(this.numero2))) { 
+                throw new Error("N2 inválido! Digitar somente números inteiros!");
+            }
+            this.resultado = (parseInt(this.numero1) + parseInt(this.numero2));
+            this.descricao="OK: " + this.numero1 + " + " + this.numero2 + " = " + this.resultado;
+        } catch(e) {
+            this.descricao="ERRO: " + e.message;
+        } finally { 
+            this.imprime();
+        }
+    }
+    MATEMATICA.raizquadrada=function (){
+        try {
+            if (isNaN(parseInt(this.numero1))) { 
+                throw new Error("N1 inválido! Digitar somente números inteiros!");
+            }
+            if (parseInt(this.numero1) < 0) { 
+                throw new Error("N1 inválido! Digitar somente números inteiros e positivos!");
+            }
+            this.resultado = Math.sqrt(parseInt(this.numero1));
+            this.descricao="OK: raiz quadrada de " + this.numero1 + " = " + this.resultado;
+        } catch(e) {
+            this.descricao="ERRO: " + e.message;
+        } finally { 
+            this.imprime();
+        }        
+    }
+    MATEMATICA.potenciacao=function (){
+        try {
+            if (isNaN(parseInt(this.numero1))) { 
+                throw new Error("N1 inválido! Digitar somente números inteiros!");
+            }
+            if (isNaN(parseInt(this.numero2))) { 
+                throw new Error("N2 inválido! Digitar somente números inteiros!");
+            }
+            this.resultado = Math.pow(parseInt(this.numero1) , parseInt(this.numero2));
+            this.descricao="OK: " + this.numero1 + " elevado a " + this.numero2 + " = " + this.resultado;
+        } catch(e) {
+            this.descricao="ERRO: " + e.message;
+        } finally { 
+            this.imprime();
+        }        
+    }
+    MATEMATICA.faixanumeros=function (){
+        try {
+            if (isNaN(parseInt(this.numero1))) { 
+                throw new Error("N1 inválido! Digitar somente números inteiros!");
+            }
+            if (isNaN(parseInt(this.numero2))) { 
+                throw new Error("N2 inválido! Digitar somente números inteiros!");
+            }
+            var n1 = 0, n2 = 0;
+            if(this.numero1 < this.numero2){
+                n1 = parseInt(this.numero1);
+                n2 = parseInt(this.numero2);
+            }
+            else {
+                n1 = parseInt(this.numero2);
+                n2 = parseInt(this.numero1);
+            }
+            var ntotal = n2 - n1 + 1;
+            this.resultado = Math.floor(Math.random() * ntotal + n1);
+            this.descricao="OK: Número Sorteado dentro da faixa de " + this.numero1 + " até " + this.numero2 + " = " + this.resultado;
+        } catch(e) {
+            this.descricao="ERRO: " + e.message;
+        } finally { 
+            this.imprime();
+        }           
+        
+    }
+
+    function soma(){
+        MATEMATICA.numero1=document.getElementById("input031").value;
+        MATEMATICA.numero2=document.getElementById("input032").value;
+        MATEMATICA.soma();
+    }
+    
+    function raiz(){
+        MATEMATICA.numero1=document.getElementById("input031").value;
+        MATEMATICA.raizquadrada();
+    }
+    
+    function potencia(){
+        MATEMATICA.numero1=document.getElementById("input031").value;
+        MATEMATICA.numero2=document.getElementById("input032").value;
+        MATEMATICA.potenciacao();
+    }
+    
+    function faixa(){
+        MATEMATICA.numero1=document.getElementById("input031").value;
+        MATEMATICA.numero2=document.getElementById("input032").value;
+        MATEMATICA.faixanumeros();
+    }
+
+    
+/*
+4) Usando o objeto String, desenvolva o exercício proposto: Faça uma pequena aplicação
+com um formulário que receba uma frase de até 30 letras e aplique um método de
+criptografia qualquer (pode usar objetos prontos de criptografia para javascript ou
+inventar o seu método usando o método mais simples que é o de substituição de letras
+por outra(s)). Exiba a frase original e a criptografada.
+ */
+    function ex04(){
+        var s = document.getElementById("input04").value;
+        var crip = encripta(s);
+        var decrip = decripta(crip);
+        var div04 = document.getElementById("div04");
+        div04.innerHTML = "Texto original: <b>"+s+"</b><br>Texto criptografado: <b>"+crip+"</b><br>Texto decriptado: <b>"+decrip+"</b>";
+    }
+    function encripta(s){
+        var result = "";
+        // inverte caracteres
+        for(i = (s.length - 1);i >= 0 ;i--){
+            result += s[i];
+        }
+        s = result;
+        // substitui cada caracter por 3 digitos numericos correspondentes ao codigo ASCII
+        result = "";
+        for(i=0;i<s.length;i++){
+            result += ("000"+s[i].charCodeAt(0)).substr(-3);
+        }
+        s = result;
+        // inverte dígitos
+        result = "";
+        for(i = (s.length - 1);i >= 0 ;i--){
+            result += s[i];
+        }
+        s = result;
+        // substitui cada digito por um caracter ascii obtido a partir do seguinte algoritmo:
+        // 0 -> random 48-57
+        // pares: random 65-90
+        //     2 -> random 65-70
+        //     4 -> random 71-76
+        //     6 -> random 77-82
+        //     8 -> random 83-90
+        // impares: random 97-122
+        //     1 -> random 97-101
+        //     3 -> random 102-106
+        //     5 -> random 107-111
+        //     7 -> random 112-116
+        //     9 -> random 117-122
+        result = "";
+        for(i=0;i<s.length;i++){
+            var c = parseInt(s[i]);
+            var ascii = 0;
+            switch (c) {
+              case 1:
+                  ascii = getRandomIntInclusive(97,101);
+                break;
+              case 2:
+                  ascii = getRandomIntInclusive(65,70);
+                break;
+              case 3:
+                  ascii = getRandomIntInclusive(102,106);
+                break;
+              case 4:
+                  ascii = getRandomIntInclusive(71,76);
+                break;
+              case 5:
+                  ascii = getRandomIntInclusive(107,111);
+                break;
+              case 6:
+                  ascii = getRandomIntInclusive(77,82);
+                break;
+              case 7:
+                  ascii = getRandomIntInclusive(112,116);
+                break;
+              case 8:
+                  ascii = getRandomIntInclusive(83,90);
+                break;
+              case 9:
+                  ascii = getRandomIntInclusive(117,122);
+                break;
+              default:
+                  ascii = getRandomIntInclusive(48,57);
+            }
+            result += String.fromCharCode(ascii);
+        }
+        return result;
+    }
+    
+    function decripta(s){
+        result = "";
+        for(i = 0;i < s.length;i++){
+            var ascii = s[i].charCodeAt(0);
+            var d = 0;
+            if(ascii >=  97 && ascii <= 101) d=1;
+            if(ascii >=  65 && ascii <=  70) d=2;
+            if(ascii >= 102 && ascii <= 106) d=3;
+            if(ascii >=  71 && ascii <=  76) d=4;
+            if(ascii >= 107 && ascii <= 111) d=5;
+            if(ascii >=  77 && ascii <=  82) d=6;
+            if(ascii >= 112 && ascii <= 116) d=7;
+            if(ascii >=  83 && ascii <=  90) d=8;
+            if(ascii >= 117 && ascii <= 122) d=9;
+            result += d;
+        }
+        s = result;
+        // inverte dígitos
+        result = "";
+        for(i = (s.length - 1);i >= 0 ;i--){
+            result += s[i];
+        }
+        s = result;
+        // recompõe caracteres a partir do codigo ascii
+        result = "";
+        for(i = 0;i < (s.length/3);i++){
+            var pos = i * 3;
+            var ascii = parseInt(s.substr(pos,3));
+            result += String.fromCharCode(ascii)
+        }
+        s = result;
+        // inverte dígitos
+        result = "";
+        for(i = (s.length - 1);i >= 0 ;i--){
+            result += s[i];
+        }
+        
+        return result;
+    }
+    
+    function getRandomIntInclusive(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    </script>        
+    </head>
+    <body>
+        <form>
+            <p>&nbsp;</p>
+                <b> Exercício 01</b><br/>
+                Digite o CPF: <input type="text" id="input01" name="input01" value=""/> <button type="button" onclick="ex01a()"> Validar (função estática) </button> <button type="button" onclick="ex01b()"> Validar (sintaxe literal) </button><br>
+                &nbsp;<br>
+                <div id="div01">&nbsp;</div>
+                &nbsp;<br>
+            <hr>
+                &nbsp;<br>
+                <b> Exercício 02</b><br/>
+                Digite o nome: <input type="text" id="input02" name="input02" value=""/> <button type="button" onclick="ex02()"> Calcular Numerologia </button><br>
+                &nbsp;<br>
+                <div id="div02"></div>
+                &nbsp;<br>
+            <hr>
+                &nbsp;<br>
+                <b> Exercício 03</b><br/>
+                N1: <input type="text" id="input031" name="input031" size ="3" value=""/> 
+                N2: <input type="text" id="input032" name="input032" size ="3" value=""/> <br>
+                <button type="button" style="width:250px" onclick="soma()"> soma dos dois números </button><br>
+                <button type="button" style="width:250px" onclick="raiz()"> raíz quadrada do primeiro número </button><br>
+                <button type="button" style="width:250px" onclick="potencia()"> primeiro número elevado pelo segundo </button><br>
+                <button type="button" style="width:250px" onclick="faixa()"> faixa de números </button><br>
+                &nbsp;<br>
+                <div id="div03"></div>
+                &nbsp;<br>
+           <hr>
+                &nbsp;<br>
+                <b> Exercício 04</b><br/>
+                Digite a frase: <input type="text" id="input04" name="input04" maxlength="30" size="30" value=""/> 
+                <button type="button" onclick="ex04()"> Criptografar </button><br>
+                &nbsp;<br>
+                <div id="div04"></div>
+                &nbsp;<br>
+        </form>
+        
+        
+    </body>
+</html>

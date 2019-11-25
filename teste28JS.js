@@ -15,7 +15,7 @@ window.onload = function () {
 					
 		ajax.onreadystatechange = function () {resp.innerHTML = ajax.responseText;}
 		
-		ajax.open("POST", "./arquivo.txt");ajax.send(null); // url não dá pois AJAX é bloqueado
+		ajax.open("POST", "./arquivo.txt");ajax.send();
 		
 
 		//		
