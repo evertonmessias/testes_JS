@@ -20,25 +20,21 @@ fieldset{width: 210px;display:block;position:relative;margin: 0px auto;text-alig
 <body>			
 <form id="formulario" onsubmit="return false"> <!-- usar return para evitar refresh e apagar a tela -->
   <fieldset><legend><h4>Cálculo da Media</h4></legend>
-  <label>Nota1:&emsp;&ensp;</label>
-  <input type="number" name="nota01" min="0" max="10" step="0.1" required >
-  <br>
-  <br>
-  <label>Nota2:&emsp;&ensp;</label>
-  <input type="number" name="nota02" min="0" max="10" step="0.1" required >
-  <br>
-  <br>
+  <label>Nota1:&emsp;&ensp;
+  <input type="number" name="nota01" min="0" max="10" step="0.1" required ></label>
+  <br><br>
+  <label>Nota2:&emsp;&ensp;
+  <input type="number" name="nota02" min="0" max="10" step="0.1" required ></label>
+  <br><br>
   <button onclick="calculomedia();">Calcular</button>&nbsp;
   <button type="reset" onclick="window.location.reload()">&nbsp;Apagar&nbsp;</button>
   <!-- input type submit,button,reset / button submit,button,reset -->
-  <br>
-  <br>
-  <label>Media:&emsp;&ensp;</label>
-  <input type="text" name="media" size="6" readonly><br><br>
+  <br><br>
+  <label>Media:&emsp;&ensp;
+  <input type="text" name="media" size="6" readonly></label>
+  <br><br>
   <label id="situacao">situação&ensp;</label>
   </fieldset>
 </form>
-
- </body>
- 
+ </body> 
   </html>
