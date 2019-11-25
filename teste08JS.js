@@ -1,23 +1,20 @@
 // for in
 
-var Pessoa = new Array ("jose","masc","30anos");
+document.write("<br><br><h2>Nomes</h2><br>");
 
-alert(Pessoa);
+var Pessoa = new Array ("maria","marcelo","manoel");
 
-for (var i in Pessoa) {
-	alert(Pessoa[i]);
-}
+document.write(Pessoa);
 
-var frutas = ["banana","mamão","morango","laranja"];
+document.write("<br><br><h2>Frutas</h2><br>");
+
+var frutas = ["banana","mamao","morango","laranja"];
 
 for (var i in frutas) {
-	alert(frutas[i]);
+	document.write(frutas[i]+"<br>");
 }
 
-
-var confirma = confirm("Continuar ??");
-
-if (confirma) {
+document.write("<br><br><h2>Dados</h2><br>");
 
 var Dados = { 				// array associativo , veja + em 11
 		nome : "Jose",
@@ -25,11 +22,5 @@ var Dados = { 				// array associativo , veja + em 11
 		idade : 30	
 };
 
-alert(Dados);
-
 for (var lista in Dados){ // lista é como se fosse os índices do vetor ; 0,1,2
-
-alert(lista +" : "+ Dados[lista] );
-}
-
-}
+document.write(lista +" : "+ Dados[lista] + "<br>" );
