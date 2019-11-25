@@ -9,6 +9,6 @@ var altura = parseFloat(formulario.altura.value);
 
 var imc = peso / (altura * altura);
 
-formulario.imc.value = imc.toFixed("2") ;
+formulario.imc.value = imc.toFixed("1") ;
 
 }
