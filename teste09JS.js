@@ -1,84 +1,86 @@
-/*
 
 // tipo primitivo boolean
 
-alert(">>> PRIMITIVO BOOLEAN <<<");
+document.write(">>> PRIMITIVO BOOLEAN <<<<br>");
 
 var valorprimitivo = true;
 
-alert(valorprimitivo);
+document.write(valorprimitivo+"<br>");
 
-alert(typeof(valorprimitivo));
+document.write(typeof(valorprimitivo)+"<br>");
 
 
 // Objeto Boolean
 
-alert(">>> OBJETO BOOLEAN <<<");
+document.write("<br>>>> OBJETO BOOLEAN <<<<br>");
 
 var b = new Boolean (true); // ou Boolean (1); 
 
-alert(b);
+document.write(b+"<br>");
 
-alert(typeof(b));
+document.write(typeof(b)+"<br>");
 
 
 // tipo primitivo number
 
-alert(">>> NUMBER <<<");
+document.write("<br>>>> PRIMITIVO NUMBER <<<<br>");
 
 var valor = 120.35;
 
-alert(valor);
+document.write(valor+"<br>");
 
-alert(typeof(valor));
+document.write(typeof(valor)+"<br>");
 
 
 // Objeto Number
 
-alert(Number.MAX_VALUE);
+document.write("<br>>>> OBJETO NUMBER <<<<br>");
+
+document.write(Number.MAX_VALUE+"<br>");
 
 var n = new Number (125.2839475344);
 
-alert(n);
+document.write(n+"<br>");
 
-alert(typeof(n));
+document.write(typeof(n)+"<br>");
 
-alert(n.toFixed(5));
+document.write(n.toFixed(5)+"<br>");
 
-alert(n.toExponential(2)); 
+document.write(n.toExponential(2)+"<br>"); 
 
-*/
 
 // tipo primitivo string
 
-alert(">>> STRING <<<");
+document.write("<br>>>> PRIMITIVO STRING <<<<br>");
 
 var texto = "Documento JavaScript";
 
-alert(texto);
+document.write(texto+"<br>");
 
-alert(typeof(texto));
+document.write(typeof(texto)+"<br>");
 
 
 // Objeto String
 
-document.write(String.fromCharCode(182, 9829));
-document.write("<br>");
+document.write("<br>>>> OBJETO STRING <<<<br>");
+
+document.write(String.fromCharCode(182, 9829)+"<br>");
 
 var s = new String ("Documento JavaScript");
 
-document.write(s + "<br>" + s.length + "<br>" + s.charAt(0) + "<br>"); // veja mais métodos em ==> https://www.w3schools.com/jsref/jsref_obj_string.asp
+document.write(s + "<br>Tamanho: " + s.length + "<br>CharAt(0): " + s.charAt(0)); // veja mais métodos em ==> https://www.w3schools.com/jsref/jsref_obj_string.asp
 
-var re = /[aei]/;document.write(s.match(re) + "<br>"); // expressões regulares igual linux
+var re = /[aei]/;
+document.write("<br>Exp.Reg [aei]: "+s.match(re)); // expressões regulares igual linux
 
-document.write(s.replace("Documento","DOC") + "<br>");
+document.write("<br>Replace: "+s.replace("Documento","DOC"));
 
-document.write(s.substring(2,5) + "<br>");
+document.write("<br>Substring 2,5: "+s.substring(2,5));
 
-document.write(s.split(" ")[1] + "<br>");
+document.write("<br>Split 1: "+s.split(" ")[1]);
 
-document.write(s.toUpperCase() + "<br>");
+document.write("<br>Upercase: "+s.toUpperCase());
 
-document.write(s.bold() + "<br>" + s.sup() + "<br>" + s.fontcolor("red") + "<br>");  // procure não usar , não está no W3C
+document.write("<br>Bold: "+s.bold() + "<br>Sobrescrito: " + s.sup() + "<br>FontColor: " + s.fontcolor("red"));  // procure não usar , não está no W3C
 
-document.write(s.link("https://www.w3schools.com")); // procure não usar , não está no W3C
+document.write("<br>Link: "+s.link("https://www.w3schools.com")); // procure não usar , não está no W3C
