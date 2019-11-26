@@ -55,7 +55,7 @@ document.write("<br>>>> PRIMITIVO STRING <<<<br>");
 
 var texto = "Documento JavaScript";
 
-document.write(texto+"<br>");
+document.write(texto.bold().fontcolor("blue")+"<br>");
 
 document.write(typeof(texto)+"<br>");
 
