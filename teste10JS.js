@@ -21,27 +21,22 @@ for (var i=0; i < paises.length; i++){
 document.write("<br> pais : "+paises[i]);
 }
 
-document.write("<BR><BR>"+ paises.indexOf("Canada")+"<BR><BR>");
+document.write("<BR><BR>indexOf Canada: "+ paises.indexOf("Canada")+"<BR><BR>");
 
-// metodos de ordenação
+// metodos de ordenação e concatenação
 
-document.write(paises.reverse() +"<BR>");
-document.write(paises.sort() +"<BR>");
-document.write(paises.join(" ; ") +"<BR>");
-
-// concatenar 
-
-document.write(paises.concat("India","Japao","Argentina"));
+document.write("paises.reverse: " + paises.reverse() +"<BR>");
+document.write("paises.sort: " + paises.sort() +"<BR>");
+document.write("paises.join: " + paises.join(" ; ") +"<BR>");
+document.write("paises.concat: " + paises.concat("India","Japao","Argentina"));
 
 // filas FIFO (first in , first out)
 
-document.write("<BR><BR><BR>Lista Original : "+paises+"<BR><BR><BR>");
-
-document.write(paises.push("Franca","Portugal","Espanha")); // adiciona no fim da fila
-document.write("<BR>"+paises+"<BR><br>");
-
-document.write(paises.shift()); // remove do inicio da fila
-document.write("<BR>"+paises+"<BR><br>");
+document.write("<BR><BR>*lista Original : "+paises);
+document.write("<BR>add no fim: "+paises.push("Franca","Portugal","Espanha")); // adiciona no fim da fila
+document.write("<BR>*lista Nova : "+paises);
+document.write("<BR>del do inicio: "+paises.shift()); // remove do inicio da fila
+document.write("<BR>*lista Nova2 : "+paises);
 
 
 
