@@ -4,9 +4,9 @@
 
 
 function evento1() {
-	alert("EVENTO 1");
+	var resp = document.getElementById("resp").innerHTML = "BOTAO 1 (um) pressionado";
 }
 
 function evento2() {
-	alert("EVENTO 2");
+	var resp = document.getElementById("resp").innerHTML = "BOTAO 2 (dois) pressionado";
 }

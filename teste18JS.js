@@ -2,22 +2,18 @@
 
 window.onload = function () {
 
-window.alert(window.navigator.platform); // ou simplesmente sem o window;
+    window.document.write("<br>BOM - Objetos do Browse".bold().fontcolor("red")+"<br><br>");
 
-alert(navigator.userAgent);
+document.write(window.navigator.platform+"<br>"); // ou simplesmente sem o window;
 
-alert(navigator.language);
+document.write(navigator.userAgent+"<br>");
 
-alert(location.href);
+document.write(navigator.language+"<br>");
 
-alert(window.screen.width + " / " + window.screen.height); // resolução do monitor
+document.write(location.href+"<br>");
 
-var deseja = window.confirm("Deseja continuar ?"); // ou simplesmente sem o window;
+document.write(window.screen.width + " / " + window.screen.height+"<br>"); // resolução do monitor
 
-var continua = window.prompt("Diga por que continuou:");
+window.open("teste03JS.html","teste","width=500,height=300");
 
-window.open("teste17JS.html","teste","width=500,height=300");
-
-document.write("Deseja continuar ? " + deseja + "<br>");
-document.write("Porque : " + continua + "<br>");
 }

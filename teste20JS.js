@@ -7,7 +7,7 @@ window.onload = function () {
 
 function ligar() {
 	document.getElementById("lampada").src = "./lampada-acesa.jpg";
-	setTimeout(desligar, 1000); // sem repetição
+	setTimeout(desligar, 200); // sem repetição
 	setInterval(apresentaHoras, 1000); }	// com repetição
 
 function desligar() {

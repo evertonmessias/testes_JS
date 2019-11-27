@@ -1,53 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width">
-<title>Calculo do IMC</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width">
+    <title>Calculo do IMC</title>
 
-<style type="text/css">
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-body{
-background-color: rgba(220,220,220,0.8);
-font-family: 'Open Sans';font-size:18px;}
-fieldset{margin: 0px auto;width: 280px;}
-fieldset.resp{width: 160px;height:40px; }
-input#peso, input#altura {width: 120px;}
-input#botao {width: 102px;}
-p#Cond{display:block;position:relative; top:-20px;text-align:center;}
-/*@media (max-width: 720px){body{font-size: 25px;}fieldset{width: 300px;}fieldset.resp{width: 220px;height: 70px;}} // mobile*/
-</style>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-<script type="text/javascript" >
+        body {
+            background-color: rgba(220, 220, 220, 0.2);
+            font-family: 'Open Sans';
+            font-size: 18px;
+        }
 
-function calcular() {
-var formulario = document.getElementById("formulario");
-var imct = document.getElementById("imcT");var resp = document.getElementById("Cond");
-var imc,condicao;
-if (formulario.altura.value != "" && formulario.altura.value != "") {
-if (parseFloat(formulario.peso.value) <= 200 && parseFloat(formulario.altura.value) <= 2.5) {
-imc = parseFloat(formulario.peso.value) / (Math.pow(parseFloat(formulario.altura.value),2));
-imct.innerHTML ="&emsp;&emsp;IMC&nbsp;=&nbsp;" + imc.toFixed("0");imct.style.fontWeight = "bold";
-if (imc <= 17){condicao = "Muito abaixo";}
-else if (imc > 17 && imc <= 19){condicao = "Abaixo do peso";}
-else if (imc > 19 && imc <= 25){condicao = "Peso Normal";}
-else if (imc > 25 && imc <= 30){condicao = "Acima do peso";}
-else if (imc > 30 && imc <= 35){condicao = "Obesidade Leve";}
-else if (imc > 35 && imc <= 40){condicao = "Obesidade Severa";}
-else if (imc > 40 && imc <= 99){condicao = "Obesidade Mórbida";}
-else {condicao = "Valores incorretos !!";}
-resp.innerHTML = condicao;resp.style.fontWeight = "bold";}}}
-</script>
+        fieldset {
+            margin: 0px auto;
+            width: 280px;
+            background-color: #ddd;
+        }
+
+        fieldset.resp {
+            width: 200px;
+            height: 40px;
+        }
+
+        input#peso,
+        input#altura {
+            margin-left: 20px;
+            width: 120px;
+        }
+
+        input#botao {
+            margin-left: 30px;
+            width: 102px;
+        }
+
+        p#Cond {
+            margin-top: -2px;
+            text-align: center;
+        }
+
+        /*@media (max-width: 720px){body{font-size: 25px;}fieldset{width: 300px;}fieldset.resp{width: 220px;height: 70px;}} // mobile*/
+    </style>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            var botao = document.getElementById("botao");
+            botao.onclick = function () {
+                var formulario = document.getElementById("formulario");
+                var imct = document.getElementById("imcT"); var resp = document.getElementById("Cond");
+                var imc, condicao;
+                if (formulario.altura.value != "" && formulario.altura.value != "") {
+                    if (parseFloat(formulario.peso.value) <= 200 && parseFloat(formulario.altura.value) <= 2.5) {
+                        imc = parseFloat(formulario.peso.value) / (Math.pow(parseFloat(formulario.altura.value), 2));
+                        imct.innerHTML = "&emsp;&emsp;IMC&nbsp;=&nbsp;" + imc.toFixed("0"); imct.style.fontWeight = "bold";
+                        if (imc <= 17) { condicao = "Muito abaixo"; }
+                        else if (imc > 17 && imc <= 19) { condicao = "Abaixo do peso"; }
+                        else if (imc > 19 && imc <= 25) { condicao = "Peso Normal"; }
+                        else if (imc > 25 && imc <= 30) { condicao = "Acima do peso"; }
+                        else if (imc > 30 && imc <= 35) { condicao = "Obesidade Leve"; }
+                        else if (imc > 35 && imc <= 40) { condicao = "Obesidade Severa"; }
+                        else if (imc > 40 && imc <= 99) { condicao = "Obesidade Mórbida"; }
+                        else { condicao = "Valores incorretos !!"; }
+                        resp.innerHTML = condicao; resp.style.fontWeight = "bold";
+                    }
+                }
+            }
+        }
+    </script>
 
 </head>
+
 <body>
-<form id="formulario">
-<fieldset><legend><h2>Cálculo do IMC</h2></legend>
-<p>Peso&nbsp;em&ensp;Kg:&nbsp;<input type="number" id="peso" step="0.1" min="0" max="200" name="peso" placeholder="Kilos" required /></p>
-<p>Altura&nbsp;em&nbsp;m:&nbsp;<input type="number" id="altura" step="0.01" min="0" max="2.50" name="altura" placeholder="metros" required /></p>
-<p><input type="button" id="botao" onclick="calcular();" value="CALCULAR"/><span id="imcT">&emsp;&emsp;IMC&nbsp;=&nbsp;0</span></p>
-<fieldset class="resp"><legend>Condição Física:</legend>
-<p id="Cond">?</p></fieldset>
-</fieldset></form>
-<!-- usar button fora do form; <button onclick="calcular();" >CALCULAR</button> -->
-</body></html>
+    <form id="formulario">
+        <fieldset>
+            <legend>
+                <h2>Cálculo do IMC</h2>
+            </legend>
+            <p>Peso&nbsp;em&ensp;Kg:&nbsp;<input type="number" id="peso" step="0.1" min="0" max="200" name="peso"
+                    placeholder="Kilos" required /></p>
+            <p>Altura&nbsp;em&nbsp;m:&nbsp;<input type="number" id="altura" step="0.01" min="0" max="2.50" name="altura"
+                    placeholder="metros" required /></p>
+            <p><input type="button" id="botao" value="CALCULAR" />
+                <span id="imcT">&emsp;&emsp;IMC&nbsp;=&nbsp;0</span></p>
+            <fieldset class="resp">
+                <legend>Condição Física:</legend>
+                <p id="Cond">?</p>
+            </fieldset>
+        </fieldset>
+    </form>
+</body>
+
+</html>
