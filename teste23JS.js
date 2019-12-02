@@ -19,21 +19,6 @@ window.onload = function () {
     tit = document.getElementsByTagName("h2"); // seletor tag
     document.write(tit+"<br>");
 
-    tit = document.querySelector("#tit_id"); // seletor css
-    document.write(tit+"<br>");
-
-
-
-    // depois de obter o elemento vamos muda-lo :
-
-
-    tit.innerHTML = "OUTRO TEXTO"; // mudar o texto da tag
-
-
-    // mudar o estilo da tag (2 formas; por dom html ou por dom core):
-
-    tit.style.backgroundColor = "#0000ff"; // dom html api
-
-    //tit.setAttribute("style", "color:red"); // dom core api
+    document.body.style.backgroundColor = "#ccc"; // dom html api   
 
 }
