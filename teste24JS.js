@@ -18,9 +18,16 @@ window.onload = function () {
 		document.getElementById('aviso').style.display = 'none';
 	}
 
+	//
+
 	texto.onclick = function(){
 		document.getElementsByTagName('p')[0].innerHTML = `Vc está em ${window.document.URL}`;
 	}
+	texto.ondblclick = function(){
+		document.getElementsByTagName('p')[1].innerHTML = `Dois CLICKs`;
+		document.querySelector('p.r3').innerHTML = "DOM"
+	}
+
 	
 
 }
