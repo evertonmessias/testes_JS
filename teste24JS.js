@@ -7,11 +7,20 @@
 
 window.onload = function () {
 
-var img = document.images;
-alert(img.length);
-for (var i=0; i<img.length; i++) {
-	alert(img[i].src);	
-}
+	console.log("abriu!!!");
 
+	var texto = document.getElementById("texto");
+	
+	texto.onmouseover = function(){
+		document.getElementById('aviso').style.display = 'block';
+	}
+	texto.onmouseout = function(){
+		document.getElementById('aviso').style.display = 'none';
+	}
+
+	texto.onclick = function(){
+		document.getElementsByTagName('p')[0].innerHTML = `Vc está em ${window.document.URL}`;
+	}
+	
 
 }

@@ -1,4 +1,4 @@
-// DOM Document Object Model 41
+// Seletores
 
 window.onload = function () {
 

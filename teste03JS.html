@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <title> media </title>
@@ -13,14 +14,19 @@
     }
   </style>
   <script>
+    window.onclick = function () {
+      console.log("clicou!!!");
+    }
     function calcular() {
-      var qtd = parseInt(document.getElementById('Qtd').value); 
-      var total = qtd * 1500;   
-      total = total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}); //ECMA
+      var qtd = parseInt(document.getElementById('Qtd').value);
+      var total = qtd * 1500;
+      total = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }); //ECMA
       document.getElementById('Tot').innerHTML = total;
+      window.console.log("Log da Função executada ==> OK !!!");      
     }
   </script>
 </head>
+
 <body>
   <form oninput="calcular();">
     <fieldset>
@@ -34,4 +40,5 @@
     </fieldset><br>
   </form>
 </body>
+
 </html>
