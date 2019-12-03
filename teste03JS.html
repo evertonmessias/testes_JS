@@ -14,8 +14,10 @@
   </style>
   <script>
     function calcular() {
-      var qtd = parseInt(document.getElementById('Qtd').value);      
-      document.getElementById('Tot').innerHTML = qtd * 1500;
+      var qtd = parseInt(document.getElementById('Qtd').value); 
+      var total = qtd * 1500;   
+      total = total.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}); //ECMA
+      document.getElementById('Tot').innerHTML = total;
     }
   </script>
 </head>
@@ -27,7 +29,7 @@
       </legend>
 
       <p><label>Quantidade : <input type="number" id="Qtd" value="0" min="0" max="10" /></label></p>
-      <p><label>Preço Total: R$ <span id="Tot">&nbsp;</span></label></p>
+      <p><label>Preço Total: <span id="Tot">&nbsp;</span></label></p>
 
     </fieldset><br>
   </form>
