@@ -9,7 +9,7 @@ var altura = Number(formulario.altura.value); // ECMA
 
 if(peso != 0 && altura != 0){
     
-var imc = peso / (altura * altura);
+var imc = peso / (altura**2); //ECMA
 
 formulario.imc.value = `Seu IMC é: ${imc.toFixed("1").replace('.',',')}`; //ECMA
 
