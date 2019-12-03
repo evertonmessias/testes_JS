@@ -12,15 +12,19 @@
             margin: 0px auto;
             text-align: center;
         }
+        legend{font-weight: bold;}
 
         input {
             width: 50px;
+            font-size: 14px;;
             margin-left: 5px;
-            border: 2px solid #00f
+            border: 2px solid #909090;
         }
+        input.resp{width: 150px;}
 
-        a {
-            border: 2px solid #00f;
+        span.botao {
+            cursor: pointer;
+            border: 2px solid #909090;
             padding: 4px;
             background-color: #ccc;
             color: #000;
@@ -39,9 +43,9 @@
             <p><label>Altura&nbsp;em&nbsp;m:&nbsp;<input type="number" min="0" max="2.5" step="0.01" name="altura"
                         required /></label></p>
             <br>
-            <a href="#" onclick="calcular();">CALCULAR</a>
+            <span class="botao" onclick="calcular();">CALCULAR</span>
             <br><br>
-            <p>Seu IMC&emsp;:<input type="text" name="imc" readonly /></p>
+            <p><input class="resp" type="text" name="imc" readonly /></p>
         </fieldset>
     </form>
 </body>

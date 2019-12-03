@@ -4,11 +4,15 @@ function calcular() {
 
 var formulario = document.getElementById("formulario"); // capturar o formulario inteiro 
 
-var peso = parseFloat(formulario.peso.value); // tratar como objetos selecionando com o name .. mto melhor !!
-var altura = parseFloat(formulario.altura.value);
+var peso = Number(formulario.peso.value);
+var altura = Number(formulario.altura.value); // ECMA
 
+if(peso != 0 && altura != 0){
+    
 var imc = peso / (altura * altura);
 
-formulario.imc.value = imc.toFixed("1") ;
+formulario.imc.value = `Seu IMC é: ${imc.toFixed("1")}`; //ECMA
+
+}
 
 }
