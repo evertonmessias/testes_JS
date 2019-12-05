@@ -15,7 +15,7 @@ window.onload = function () {
 		document.getElementById("h").innerHTML = h;
 		document.getElementById("m").innerHTML = m;
 		document.getElementById("s").innerHTML = s;
-		if (hora < 12) {
+		if (hora >= 6 && hora < 12) {
 			document.getElementById("foto").src = "manha.jpg";
 			document.getElementById("pagina").style = "background-color:#FFFF00";
 		} else if (hora >= 12 && hora < 18) {
