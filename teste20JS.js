@@ -1,27 +1,29 @@
 // Temporizadores
+// setTimeout(seuevento, tempo); //(sem repetição)
 
-/* outro jeito de fazer onclick sem usar o parametro do html
-window.onload = function () {				
-	document.getElementById("lampada").onclick = ligar;
-}*/
-
-function ligar() {
-	document.getElementById("lampada").src = "./lampada-acesa.jpg";
-	setTimeout(desligar, 200); // sem repetição
-	setInterval(apresentaHoras, 1000); }	// com repetição
-
-function desligar() {
-	document.getElementById("lampada").src = "./lampada-apagada.jpg";  }
-
-function apresentaHoras() {
-	var agora = new Date();
-	var hora = parseInt(agora.getHours());
-	var minuto = parseInt(agora.getMinutes());
-	var segundo = parseInt(agora.getSeconds());
-	var h = new String();var m = new String();var s = new String();
-	if (hora < 10) {h = "0" + hora;}else {h = hora;}
-	if (minuto < 10) {m = "0" + minuto;}else {m = minuto;}	
-	if (segundo < 10) {s = "0" + segundo;}else {s = segundo;}
-	document.getElementById("h").innerHTML = h;
-	document.getElementById("m").innerHTML = m;
-	document.getElementById("s").innerHTML = s;	}
+window.onload = function () {
+	setInterval(apresentaHoras, 1000);
+	function apresentaHoras() {
+		var agora = new Date();
+		var hora = parseInt(agora.getHours());
+		var minuto = parseInt(agora.getMinutes());
+		var segundo = parseInt(agora.getSeconds());
+		var h = new String(); var m = new String(); var s = new String();
+		if (hora < 10) { h = "0" + hora; } else { h = hora; }
+		if (minuto < 10) { m = "0" + minuto; } else { m = minuto; }
+		if (segundo < 10) { s = "0" + segundo; } else { s = segundo; }
+		document.getElementById("h").innerHTML = h;
+		document.getElementById("m").innerHTML = m;
+		document.getElementById("s").innerHTML = s;
+		if (hora < 12) {
+			document.getElementById("foto").src = "manha.jpg";
+			document.getElementById("pagina").style = "background-color:#FFFF00";
+		} else if (hora >= 12 && hora < 18) {
+			document.getElementById("foto").src = "tarde.jpg";
+			document.getElementById("pagina").style = "background-color:#FF8C00";
+		} else {
+			document.getElementById("foto").src = "noite.jpg";
+			document.getElementById("pagina").style = "background-color:#191970";
+		}
+	}
+}
