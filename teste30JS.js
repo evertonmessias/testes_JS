@@ -2,16 +2,22 @@
 
 $(function () {
 
-$("#menu").css({"color":"red", "fontSize":"20px", "background-color":"silver"});
+    $(".texto").click(function(){
+        $(this).html("JQUERY").css({
+            "width":"600px",
+            "color":"red", 
+            "fontSize":"80px", 
+            "background-color":"silver"
+        });
+    });
 
-$(".titulo").addClass("novaclasse");
+    $(".texto").hover(function(){
+        $(".balao").addClass("novaclasse");
+    });
+    $(".texto").mouseout(function(){
+        $(".balao").removeClass("novaclasse");
+    });
 
-$("h1").text("NOVO SITE");
 
-
-var pessoas = ["eu","tu","ele","nos"];
-
-$.each(pessoas, function (index, item) {
-alert(item);})
 
 })
