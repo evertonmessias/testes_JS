@@ -1,12 +1,7 @@
 // testes
 
-var idade = 2;
+var idade = 16;
 
-maior = (idade >= 18)?"Maior de idade":"Menor de idade";
+maior = (idade >= 16)?"Pode Votar !":"Não pode votar.";
 
-document.write(maior+"<br>");
-
-for (var contador = 1;contador <= 10;contador++) {
-	document.write(contador+"<br>");
-	
-}
+console.log(maior);
