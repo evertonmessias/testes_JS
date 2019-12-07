@@ -1,40 +1,86 @@
-// for in
 
-document.write("<br><br><h2>Nomes</h2><br>");
+// tipo primitivo boolean
 
-var Pessoa = new Array ("maria","marcelo","manoel");
+document.write(">>> PRIMITIVO BOOLEAN <<<<br>");
 
-document.write(Pessoa);
+var valorprimitivo = true;
 
-document.write("<br><br><h2>Frutas</h2><br>");
+document.write(valorprimitivo+"<br>");
 
-var frutas = ["banana","mamao","morango","laranja"];
+document.write(typeof(valorprimitivo)+"<br>");
 
-for (var i in frutas) {
-	document.write(frutas[i]+"<br>");
-}
 
-document.write("<br><br><h2>Dados</h2><br>");
+// Objeto Boolean
 
-var Dados = { 				// array associativo , veja + em 11
-		nome : "Jose",
-		sexo : "Masc",
-		idade : 30	
-};
+document.write("<br>>>> OBJETO BOOLEAN <<<<br>");
 
-for (var lista in Dados){ // lista é como se fosse os índices do vetor ; 0,1,2
-document.write(lista +" : "+ Dados[lista] + "<br>" );
-}
+var b = new Boolean (true); // ou Boolean (1); 
 
-// VAR e LET
+document.write(b+"<br>");
 
-if (true){
-	var texto1 = "Oi eu sou um var";
-	let texto2 = "Oi eu sou um let"; // let só pode ser acessada no bloco
-	console.log(texto1);
-	console.log(texto2);
-	
-}
+document.write(typeof(b)+"<br>");
 
-console.log(texto1);
-console.log(texto2);
+
+// tipo primitivo number
+
+document.write("<br>>>> PRIMITIVO NUMBER <<<<br>");
+
+var valor = 120.35;
+
+document.write(valor+"<br>");
+
+document.write(typeof(valor)+"<br>");
+
+
+// Objeto Number
+
+document.write("<br>>>> OBJETO NUMBER <<<<br>");
+
+document.write(Number.MAX_VALUE+"<br>");
+
+var n = new Number (125.2839475344);
+
+document.write(n+"<br>");
+
+document.write(typeof(n)+"<br>");
+
+document.write(n.toFixed(5)+"<br>");
+
+document.write(n.toExponential(2)+"<br>"); 
+
+
+// tipo primitivo string
+
+document.write("<br>>>> PRIMITIVO STRING <<<<br>");
+
+var texto = "Documento JavaScript";
+
+document.write(texto.bold().fontcolor("blue")+"<br>");
+
+document.write(typeof(texto)+"<br>");
+
+
+// Objeto String
+
+document.write("<br>>>> OBJETO STRING <<<<br>");
+
+document.write(String.fromCharCode(182, 9829)+"<br>");
+
+var s = new String ("Documento JavaScript");
+
+document.write(s + "<br>Tamanho: " + s.length + "<br>CharAt(0): " + s.charAt(0)); // veja mais métodos em ==> https://www.w3schools.com/jsref/jsref_obj_string.asp
+
+var re = /[aei]/;
+document.write("<br>Exp.Reg [aei]: "+s.match(re)); // expressões regulares igual linux
+
+document.write("<br>Replace: "+s.replace("Documento","DOC"));
+
+document.write("<br>Substring 2,5: "+s.substring(2,5));
+
+document.write("<br>Split 1: "+s.split(" ")[1]);
+
+document.write("<br>Upercase: "+s.toUpperCase());
+
+document.write("<br>Bold: "+s.bold() + "<br>Sobrescrito: " + s.sup() + "<br>FontColor: " + s.fontcolor("red"));  // procure não usar , não está no W3C
+
+document.write("<br>Link: "+s.link("https://www.w3schools.com")); // procure não usar , não está no W3C

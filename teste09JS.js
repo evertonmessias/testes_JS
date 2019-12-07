@@ -1,86 +1,57 @@
+// for in
 
-// tipo primitivo boolean
+document.write("<h4>Nomes</h4>");
 
-document.write(">>> PRIMITIVO BOOLEAN <<<<br>");
+var Pessoa = new Array ("maria","marcelo","manoel");
 
-var valorprimitivo = true;
+document.write(Pessoa);
 
-document.write(valorprimitivo+"<br>");
+document.write("<h4>Frutas</h4>");
 
-document.write(typeof(valorprimitivo)+"<br>");
+var frutas = ["banana","mamao","morango","laranja"];
 
+for (var i in frutas) {
+	document.write(frutas[i]+"<br>");
+}
 
-// Objeto Boolean
+document.write("<br><h2>OBJETO ARRAY</h2><br>");
 
-document.write("<br>>>> OBJETO BOOLEAN <<<<br>");
+// Objeto Array
+document.write("<br>Toda string eh um Array<BR>".bold().fontcolor("red"));
 
-var b = new Boolean (true); // ou Boolean (1); 
+var texto = "javascript";
 
-document.write(b+"<br>");
+document.write("texto: " + texto + "<BR>");
+document.write("texto[0]: " + texto[0] + "<BR>");
 
-document.write(typeof(b)+"<br>");
+//Metodos
+document.write("<br>Metodos<BR>".bold());
 
+var paises = new Array ("Brasil","EUA","Canada","China");
 
-// tipo primitivo number
+document.write("paises: " + paises +"<BR>");
+document.write("paises[0]: " + paises[0] +"<BR>");
+document.write("paises[0][1]: " + paises[0][1] +"<BR>");
+document.write("paises.length: " + paises.length +"<BR>");
+document.write("paises[0]length: " + paises[0].length +"<BR>");
 
-document.write("<br>>>> PRIMITIVO NUMBER <<<<br>");
+for (var i=0; i < paises.length; i++){
+document.write("<br> pais : "+paises[i]);
+}
 
-var valor = 120.35;
+document.write("<BR><BR>indexOf Canada: "+ paises.indexOf("Canada")+"<BR><BR>");
 
-document.write(valor+"<br>");
+// metodos de ordenação e concatenação
 
-document.write(typeof(valor)+"<br>");
+document.write("paises.reverse: " + paises.reverse() +"<BR>");
+document.write("paises.sort: " + paises.sort() +"<BR>");
+document.write("paises.join: " + paises.join(" ; ") +"<BR>");
+document.write("paises.concat: " + paises.concat("India","Japao","Argentina"));
 
+// filas FIFO (first in , first out)
 
-// Objeto Number
-
-document.write("<br>>>> OBJETO NUMBER <<<<br>");
-
-document.write(Number.MAX_VALUE+"<br>");
-
-var n = new Number (125.2839475344);
-
-document.write(n+"<br>");
-
-document.write(typeof(n)+"<br>");
-
-document.write(n.toFixed(5)+"<br>");
-
-document.write(n.toExponential(2)+"<br>"); 
-
-
-// tipo primitivo string
-
-document.write("<br>>>> PRIMITIVO STRING <<<<br>");
-
-var texto = "Documento JavaScript";
-
-document.write(texto.bold().fontcolor("blue")+"<br>");
-
-document.write(typeof(texto)+"<br>");
-
-
-// Objeto String
-
-document.write("<br>>>> OBJETO STRING <<<<br>");
-
-document.write(String.fromCharCode(182, 9829)+"<br>");
-
-var s = new String ("Documento JavaScript");
-
-document.write(s + "<br>Tamanho: " + s.length + "<br>CharAt(0): " + s.charAt(0)); // veja mais métodos em ==> https://www.w3schools.com/jsref/jsref_obj_string.asp
-
-var re = /[aei]/;
-document.write("<br>Exp.Reg [aei]: "+s.match(re)); // expressões regulares igual linux
-
-document.write("<br>Replace: "+s.replace("Documento","DOC"));
-
-document.write("<br>Substring 2,5: "+s.substring(2,5));
-
-document.write("<br>Split 1: "+s.split(" ")[1]);
-
-document.write("<br>Upercase: "+s.toUpperCase());
-
-document.write("<br>Bold: "+s.bold() + "<br>Sobrescrito: " + s.sup() + "<br>FontColor: " + s.fontcolor("red"));  // procure não usar , não está no W3C
-
-document.write("<br>Link: "+s.link("https://www.w3schools.com")); // procure não usar , não está no W3C
+document.write("<BR><BR>*lista Original : "+paises);
+document.write("<BR>add no fim: "+paises.push("Franca","Portugal","Espanha")); // adiciona no fim da fila
+document.write("<BR>*lista Nova : "+paises);
+document.write("<BR>del do inicio: "+paises.shift()); // remove do inicio da fila
+document.write("<BR>*lista Nova2 : "+paises);

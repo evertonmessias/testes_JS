@@ -1,18 +1,21 @@
-// Array Multi e Associativo
-document.write("<br>Array Multi e Associativo<br>".bold().fontcolor("red"));
+var dados = {
+    nome : "Everton",    
+    idade : 43,
+    peso: 102,
+    engordar(p){
+        console.log("Engordou!");
+        this.peso += p;
+    }	
+};
 
-var pessoa = new Array();
-
-pessoa[0] = ["Jose","Masc"];
-pessoa[1] = ["Maria","Fem"];
-
-document.write("<br>"+pessoa[1][1]+"<br>");
-
-var pessoas = {nome:"Ana",cidade:"Campinas",grau:"Superior"};
-
-document.write("<br>"+pessoas["cidade"]+"<br>");
-
-for (var lista in pessoas){
-document.write("<br>"+lista + " : " + pessoas[lista]);
+for (var lista in dados){
+console.log(lista +" : "+ dados[lista]);
 }
+
+console.log(`Nome: ${dados.nome}, Idade: ${dados.idade}, Peso: ${dados.peso}`);
+dados.engordar(8);
+console.log(`Nome: ${dados.nome}, Idade: ${dados.idade}, Peso: ${dados.peso}`);
+
+
+
 
