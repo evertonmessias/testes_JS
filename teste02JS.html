@@ -1,40 +1,62 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<html>
+
 <head>
-<meta charset="UTF-8">
-<title> media </title>        
-<style type="text/css">
-fieldset{width: 210px;display:block;position:relative;margin: 0px auto;text-align:center; }
-</style> 
-<script type="text/javascript">
-  function calculomedia() {  
-  var formulario = document.getElementById("formulario"); //capturar todo o formulario para um Objeto
-  if (formulario.nota01.value != "" && formulario.nota02.value != "") {
-  var resultado = (parseFloat(formulario.nota01.value) + parseFloat(formulario.nota02.value)) / 2;
-  formulario.media.value = resultado;
-  if (resultado >= 7) {document.getElementById("situacao").innerHTML = "APROVADO";}
-  else {document.getElementById("situacao").innerHTML = "reprovado.";}  
-  }}
-</script>
+    <style>
+        #site,
+        #caixa,
+        #cor,
+        .cod {
+            display: block;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        #site {
+            border: 1px solid black;
+            width: 1000px;
+            height: 500px;
+        }
+
+        #caixa {
+            background-color: #000;
+            width: 200px;
+            height: 200px;
+            top: 50px;
+        }
+
+        .cod {
+            width: 200px;
+            top: 100px;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        #cor {
+            background-color: #fff;
+            width: 200px;
+            top: 10px;
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            document.getElementById("cor").oninput = function () {                
+                document.getElementById("caixa").style = `background-color: ${this.value}`;
+            }
+        }
+    </script>
 </head>
-<body>			
-<form id="formulario" onsubmit="return false"> <!-- usar return para evitar refresh e apagar a tela -->
-  <fieldset><legend><h4>Cálculo da Media</h4></legend>
-  <label>Nota1:&emsp;&ensp;
-  <input type="number" name="nota01" min="0" max="10" step="0.1" required ></label>
-  <br><br>
-  <label>Nota2:&emsp;&ensp;
-  <input type="number" name="nota02" min="0" max="10" step="0.1" required ></label>
-  <br><br>
-  <button onclick="calculomedia();">Calcular</button>&nbsp;
-  <button type="reset" onclick="window.location.reload()">&nbsp;Apagar&nbsp;</button>
-  <!-- [input type] submit,button,reset / [button] submit,button,reset -->
-  <br><br>
-  <label>Media:&emsp;&ensp;
-  <input type="text" name="media" size="6" readonly></label>
-  <br><br>
-  <label id="situacao">situação&ensp;</label>
-  </fieldset>
-</form>
- </body> 
-  </html>
+
+<body>
+    <div id="site">
+        <div id="caixa"></div>
+        <label class="cod">Cor em Hexadecimal:
+            <input type="text" id="cor" placeholder="#000000" maxlength="6"></label>
+        <br>
+    </div>
+</body>
+
+</html>
