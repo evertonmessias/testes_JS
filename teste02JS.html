@@ -70,11 +70,13 @@
         }
 
         #cor {
+            cursor: pointer;
             background-color: #fff;
-            width: 200px;
+            width: 142px;
             top: 10px;
             font-size: 30px;
-            text-align: center;
+            text-align: left;
+            padding-left: 5px;
             font-weight: bold;
         }
     </style>
@@ -123,25 +125,26 @@
             }
 
             cor.onfocus = function () {
-                this.value = "";
+                cor.style = "color:#000";
                 this.value = '#';
-
             }
 
             var regex = /^#+((0x){0,1}|#{0,1})([0-9A-F]{8}|[0-9A-F]{6})$/ig;
             var codd = "";
 
-            cor.oninput = function () {                
+            cor.oninput = function () {
                 cor.style = "color:#000";
-                if (/^#/.test(cor.value)) {
-                    codd = cor.value;
-                    console.log(codd);
-                    if (codd.length > 6 && regex.test(codd)) {
+                codd = cor.value;
+                if (codd.length > 6) {
+                    if (regex.test(codd)) {
                         caixa.value = codd;
                         cursor(codd);
-                        caixa.focus();
+                        cor.style = "color:green";
                     } else { cor.style = "color:#f00"; }
-                } else { cor.value = "#" }
+                    caixa.focus();
+                }
+                console.log(codd.length); console.log(regex.test(codd));
+
             }
         }
 
