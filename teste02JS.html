@@ -100,7 +100,7 @@
                 var r = codigo[1] + codigo[2];
                 var g = codigo[3] + codigo[4];
                 var b = codigo[5] + codigo[6];
-                codr.value = toDec(r);               
+                codr.value = toDec(r);
                 codg.value = toDec(g);
                 codb.value = toDec(b);
             }
@@ -121,11 +121,30 @@
                 caixa.value = `#${toHex(codr.value) + toHex(codg.value) + toHex(this.value)}`;
                 cor.value = caixa.value.toUpperCase();
             }
-            cor.oninput = function () {               
-                caixa.value = `#${this.value}`;              
-                cursor(caixa.value);
+
+            cor.onfocus = function () {
+                this.value = "";
+                this.value = '#';
+
+            }
+
+            var regex = /^#+((0x){0,1}|#{0,1})([0-9A-F]{8}|[0-9A-F]{6})$/ig;
+            var codd = "";
+
+            cor.oninput = function () {                
+                cor.style = "color:#000";
+                if (/^#/.test(cor.value)) {
+                    codd = cor.value;
+                    console.log(codd);
+                    if (codd.length > 6 && regex.test(codd)) {
+                        caixa.value = codd;
+                        cursor(codd);
+                        caixa.focus();
+                    } else { cor.style = "color:#f00"; }
+                } else { cor.value = "#" }
             }
         }
+
     </script>
 </head>
 
@@ -138,7 +157,7 @@
             <label class="codb">00 <input type="range" id="codb" min="0" max="255" step="1" /> FF</label><br>
         </div>
         <label class="cod">Cor em Hexadecimal:
-            <input type="text" id="cor" value="#7D7D7D" maxlength="6"></label>
+            <input type="text" id="cor" placeholder="#7D7D7D" maxlength="7"></label>
         <br>
     </div>
 </body>
