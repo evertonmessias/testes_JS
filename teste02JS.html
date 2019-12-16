@@ -1,32 +1,69 @@
 <html>
 
 <head>
+    <meta charset="UTF-8" />
     <style>
         #site,
         #caixa,
+        #ranges,
         #cor,
-        .cod {
+        .cod,
+        .codr,
+        .codg,
+        .codb {
             display: block;
             position: relative;
             margin: 0 auto;
         }
 
         #site {
+            font-family: 'Times New Roman';
             border: 1px solid black;
             width: 1000px;
-            height: 500px;
+            height: 550px;
         }
 
         #caixa {
-            background-color: #000;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0);
+            border: 1px solid rgba(255, 255, 255, 0);
             width: 200px;
             height: 200px;
             top: 50px;
         }
 
+        #ranges {
+            width: 200px;
+            top: 70px;
+        }
+
+        .codr,
+        .codg,
+        .codb {
+            padding-top: 3px;
+        }
+
+        .codr {
+            background-color: #f00;
+        }
+
+        .codg {
+            background-color: #0f0;
+        }
+
+        .codb {
+            background-color: #00f;
+        }
+
+        #codr,
+        #codg,
+        #codb {
+            width: 152px;
+        }
+
         .cod {
             width: 200px;
-            top: 100px;
+            top: 80px;
             font-size: 20px;
             text-align: center;
             font-weight: bold;
@@ -43,8 +80,50 @@
     </style>
     <script>
         window.onload = function () {
-            document.getElementById("cor").oninput = function () {                
-                document.getElementById("caixa").style = `background-color: ${this.value}`;
+
+            function toHex(d) {
+                return ("0" + (Number(d).toString(16))).slice(-2).toUpperCase()
+            }
+            function toDec(hex) {
+                return hex.toLowerCase().split('').reduce((result, ch) =>
+                    result * 16 + '0123456789abcdefgh'.indexOf(ch), 0);
+            }
+
+            var caixa = document.getElementById("caixa");
+            var codr = document.getElementById("codr");
+            var codg = document.getElementById("codg");
+            var codb = document.getElementById("codb");
+            var cor = document.getElementById("cor");
+            codr.value = codg.value = codb.value = 125;
+
+            function cursor(codigo) {
+                var r = codigo[1] + codigo[2];
+                var g = codigo[3] + codigo[4];
+                var b = codigo[5] + codigo[6];
+                codr.value = toDec(r);               
+                codg.value = toDec(g);
+                codb.value = toDec(b);
+            }
+
+            caixa.oninput = function () {
+                cor.value = this.value.toUpperCase();
+                cursor(cor.value);
+            }
+            codr.oninput = function () {
+                caixa.value = `#${toHex(this.value) + toHex(codg.value) + toHex(codb.value)}`;
+                cor.value = caixa.value.toUpperCase();
+            }
+            codg.oninput = function () {
+                caixa.value = `#${toHex(codr.value) + toHex(this.value) + toHex(codb.value)}`;
+                cor.value = caixa.value.toUpperCase();
+            }
+            codb.oninput = function () {
+                caixa.value = `#${toHex(codr.value) + toHex(codg.value) + toHex(this.value)}`;
+                cor.value = caixa.value.toUpperCase();
+            }
+            cor.oninput = function () {               
+                caixa.value = `#${this.value}`;              
+                cursor(caixa.value);
             }
         }
     </script>
@@ -52,9 +131,14 @@
 
 <body>
     <div id="site">
-        <div id="caixa"></div>
+        <input type="color" id="caixa" value="#7D7D7D">
+        <div id="ranges">
+            <label class="codr">00 <input type="range" id="codr" min="0" max="255" step="1" /> FF</label><br>
+            <label class="codg">00 <input type="range" id="codg" min="0" max="255" step="1" /> FF</label><br>
+            <label class="codb">00 <input type="range" id="codb" min="0" max="255" step="1" /> FF</label><br>
+        </div>
         <label class="cod">Cor em Hexadecimal:
-            <input type="text" id="cor" placeholder="#000000" maxlength="6"></label>
+            <input type="text" id="cor" value="#7D7D7D" maxlength="6"></label>
         <br>
     </div>
 </body>
