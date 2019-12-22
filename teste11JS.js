@@ -1,6 +1,7 @@
 window.onload = function () {
     var mais = document.getElementById("mais");
     var maiss = document.getElementById("maiss");
+    var maisss = document.getElementById("maisss");
 
     var naturalidade = "Santos";
 
@@ -56,14 +57,17 @@ window.onload = function () {
             { nome: 'Dhora', idade: 47 },
             { nome: 'Erika', idade: 23 },
             { nome: 'Clelia', idade: 65 }
-        ];      
+        ];
+
+        var { nome: mae } = pessoas[2]; // "Destructuring objects" extrai e coloca em outra variavel
+        console.log(`Variavel extraida: ${mae}`);
 
         var busca = {
             posicao: 0,
             get atual() {
                 return pessoas[this.posicao]
             },
-            set atual(posicao){
+            set atual(posicao) {
                 this.posicao = posicao;
             },
             proximo() {
@@ -78,6 +82,53 @@ window.onload = function () {
         console.log(busca.atual);
         busca.atual = 2;
         console.log(busca.atual);
+    }
+
+    maisss.onclick = function () {
+
+        /*function imprimeUsuario(usuario) {
+            console.log(usuario.nome);
+            console.log(usuario.idade);
+            console.log(usuario.sexo);
+        }*/
+
+        function imprimeUsuario({nome,idade,sexo}) {
+            console.log(nome);
+            console.log(idade);
+            console.log(sexo);
+        }
+
+        var listausuario = {
+            user1: {
+                nome: "Everton",
+                idade: 43,
+                sexo: 'm'
+            },
+            user2: {
+                nome: "Dhora",
+                idade: 47,
+                sexo: 'f'
+            }
+        };
+
+        imprimeUsuario(listausuario.user2);
+
+        console.log("-----------------------------------");        
+        //console.log(Object.values(listausuario)); 
+        //console.log(Object.keys(listausuario));
+        
+        var lista = Object.keys(listausuario);        
+        for(i=0;i<lista.length;i++){
+            //console.log(lista[i]);
+            console.log(listausuario[lista[i]]);
+        }
+
+        console.log("-----------------------------------");
+
+        for (var info in listausuario){
+            console.log(listausuario[info]);
+        }   
+
     }
 
 }
