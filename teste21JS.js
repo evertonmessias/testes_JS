@@ -6,8 +6,8 @@ window.onload = function () {
 
     botao.onclick = function () {
 
-        var peso = parseFloat(document.getElementById("peso").value);
-        var altura = parseFloat(document.getElementById("altura").value);
+        var peso = Number(document.getElementById("peso").value);
+        var altura = Number(document.getElementById("altura").value);
 
         var dados = {
             peso, altura,
