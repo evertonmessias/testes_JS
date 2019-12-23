@@ -1,22 +1,16 @@
 window.onload = function () {
 
-    var botao = document.getElementById("botao");
-    var imc = document.getElementById("imc");
-    var resp = document.getElementById("cond");
+    document.getElementById("botao").onclick = function () {       
 
-    botao.onclick = function () {
-
-        var peso = Number(document.getElementById("peso").value);
-        var altura = Number(document.getElementById("altura").value);
-
-        var dados = {
-            peso, altura,
-            calcIMC() {
+        var dados = function(){ // pode ser uma classe ...
+            this.peso = Number(document.getElementById("peso").value);
+            this.altura = Number(document.getElementById("altura").value);
+            this.calcIMC = function() {
                 if ((this.peso >= 20 && this.peso <= 200) && (this.altura >= 1 && this.altura <= 2.5)) {
                     return ( this.peso / (Math.pow(this.altura, 2))).toFixed(0);
                 } else { return "Dados incorretos!" }
-            },
-            condicao() {
+            }
+            this.condicao = function() {
                 if (this.calcIMC() <= 17) { return "Muito abaixo"; }
                 else if (this.calcIMC() > 17 && this.calcIMC() <= 19) { return "Abaixo do peso"; }
                 else if (this.calcIMC() > 19 && this.calcIMC() <= 25) { return "Peso Normal"; }
@@ -26,10 +20,10 @@ window.onload = function () {
                 else if (this.calcIMC() > 40) { return "Obesidade Mórbida"; }
                 else {return "Erro";}
             }                       
-        };
-        console.log(peso,altura);              
-
-        imc.innerHTML = `IMC = ${dados.calcIMC()}`;
-        resp.innerHTML = dados.condicao();
+        }
+        var calculo = new dados();
+        document.getElementById("imc").innerHTML = `IMC = ${calculo.calcIMC()}`;
+        document.getElementById("cond").innerHTML = calculo.condicao();        
+        console.log(calculo.peso,calculo.altura); 
     }
 }
