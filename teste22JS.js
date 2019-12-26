@@ -7,5 +7,5 @@ window.onload = function () {
 		localStorage.setItem ("meuTexto", form.texto.value);}
 		
 	form.exibir.onclick = function () {
-		form.texto.value = localStorage.getItem("meuTexto");}
+		form.texto2.value = localStorage.getItem("meuTexto");}
 }

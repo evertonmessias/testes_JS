@@ -1,6 +1,6 @@
 // Objeto Função
 window.onload = function () {
-    for (var i = 0; i <= 20; i++) {
+    for (var i = 0; i <= 10; i++) {
         `var f${i} = document.getElementById("f${i}");`
     }
     var lista = [1, 2, 3, 4, 5];
