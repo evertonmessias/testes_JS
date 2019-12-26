@@ -1,18 +1,19 @@
-// IMC
+// BOM, Browser Object Model
 
-function calcular() {
+window.onload = function () {
 
-var formulario = document.getElementById("formulario"); // capturar o formulario inteiro 
+    window.document.write("<br>BOM - Objetos do Browse".bold().fontcolor("red")+"<br><br>");
 
-var peso = Number(formulario.peso.value);
-var altura = Number(formulario.altura.value); // ECMA
+document.write(window.navigator.platform+"<br>"); // ou simplesmente sem o window;
 
-if(peso != 0 && altura != 0){
-    
-var imc = peso / (altura**2); //ECMA
+document.write(navigator.userAgent+"<br>");
 
-formulario.imc.value = `Seu IMC é: ${imc.toFixed("1").replace('.',',')}`; //ECMA
+document.write(navigator.language+"<br>");
 
-}
+document.write(location.href+"<br>");
+
+document.write(window.screen.width + " / " + window.screen.height+"<br>"); // resolução do monitor
+
+window.open("teste03JS.html","teste","width=500,height=300");
 
 }

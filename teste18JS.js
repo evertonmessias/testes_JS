@@ -1,19 +1,25 @@
-// BOM, Browser Object Model
-
 window.onload = function () {
+    //Var; pode redeclarar e reatribuir
+    //Let; não pode redeclarar mas pode reatribuir
+    //Const; não pode redeclarar e nem reatribuir (exceto qdo arrays e objetos)
 
-    window.document.write("<br>BOM - Objetos do Browse".bold().fontcolor("red")+"<br><br>");
+    const dtNasc = '1976';
+    console.log(dtNasc);
+    //dtNasc = "Nova data"; // Aqui da erro , não pode reatribuir...
+    if (true) {
+        const nome = "Everton"; // assim como let , const só vale no bloco..
+        console.log("Nome:", nome);
+    }
+    //console.log("Nome:" , nome); // Aqui vai dar um erro ... 
 
-document.write(window.navigator.platform+"<br>"); // ou simplesmente sem o window;
+    const objeto = { nome: 'Everton', idade: '43' }
+    console.log(objeto);
+    objeto.nome = 'Dhora';
+    objeto.idade = '47';
+    console.log(objeto);
+    delete objeto.idade;
+    console.log(objeto);
 
-document.write(navigator.userAgent+"<br>");
-
-document.write(navigator.language+"<br>");
-
-document.write(location.href+"<br>");
-
-document.write(window.screen.width + " / " + window.screen.height+"<br>"); // resolução do monitor
-
-window.open("teste03JS.html","teste","width=500,height=300");
+    console.log("----------------");
 
 }

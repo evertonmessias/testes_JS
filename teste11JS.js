@@ -81,10 +81,10 @@ window.onload = function () {
                 this.posicao = posicao;
             },
             proximo() {
-                ++this.posicao;
+                this.posicao++;
             },
             anterior() {
-                --this.posicao;
+                this.posicao--;
             }
         }
         console.log(busca.atual);
