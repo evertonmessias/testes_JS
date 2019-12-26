@@ -24,7 +24,7 @@ window.onload = function () {
     f2.onclick = function () {
         var multiplicar = function (numeros) { // Literal, sem nome
             var total = 1;
-            for (var num of numeros) { // of pega o valor (ECMA6)
+            for (var num of numeros) { // of pega o VALOR (ECMA6)
                 total *= num;
             }
             return total;
@@ -71,6 +71,7 @@ window.onload = function () {
             console.log(`Nome: ${nome} , idade: ${idade}`);
         }
         inform(); // se nda for passado assume o valor padrão ..
+        inform('Dhora','47');
         console.log('------------------');
     }
 

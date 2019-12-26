@@ -13,6 +13,10 @@ var frutas = ["banana","mamao","morango","laranja"];
 for (var i in frutas) {
 	document.write(frutas[i]+"<br>");
 }
+document.write("<h5>Frutas</h5>");
+for (var i of frutas) { // of pega o VALOR (ECMA6)
+	document.write(i+"<br>");
+}
 
 document.write("<br><h2>OBJETO ARRAY</h2><br>");
 

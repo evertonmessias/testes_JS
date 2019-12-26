@@ -57,11 +57,13 @@ window.onload = function () {
         console.log(novoObjeto);
         console.log("-----------------------------------");
     }
+
     var pessoas = [ // array de objetos
         { nome: 'Dhora', idade: 47 },
         { nome: 'Erika', idade: 23 },
         { nome: 'Clelia', idade: 65 }
     ];
+
     ex2.onclick = function () {
         //Destructuring objects
         var { nome: mae } = pessoas[2]; // "Destructuring"; extrai e coloca em outra variavel
@@ -94,13 +96,11 @@ window.onload = function () {
 
     ex4.onclick = function () {
         //FOR
-
         /*function imprimeUsuario(usuario) {
             console.log(usuario.nome);
             console.log(usuario.idade);
             console.log(usuario.sexo);
         }*/
-
         function imprimeUsuario({ nome, idade, sexo }) {
             console.log(nome);
             console.log(idade);
