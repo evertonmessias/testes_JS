@@ -8,6 +8,7 @@ window.onload = function () {
         window.location.reload();
     }
     ex1.onclick = function () { 
+        
         console.log("--------------------");
     }
 }
