@@ -3,16 +3,19 @@ window.onload = function () {
     //Let; não pode redeclarar mas pode reatribuir
     //Const; não pode redeclarar e nem reatribuir (exceto qdo arrays e objetos)
 
+    let idade = 43;
     const dtNasc = '1976';
+
     console.log(dtNasc);
     //dtNasc = "Nova data"; // Aqui da erro , não pode reatribuir...
+
     if (true) {
         const nome = "Everton"; // assim como let , const só vale no bloco..
-        console.log("Nome:", nome);
+        console.log("Nome:", nome , "; Idade", idade);
     }
     //console.log("Nome:" , nome); // Aqui vai dar um erro ... 
 
-    const objeto = { nome: 'Everton', idade: '43' }
+    const objeto = { nome: 'Everton', idade: idade }
     console.log(objeto);
     objeto.nome = 'Dhora';
     objeto.idade = '47';

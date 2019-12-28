@@ -1,24 +1,32 @@
-// Seletores
+// DOM HTML API
+
+// DOM (Document Object Model) é um padrão do W3C para acessar documentos.
+
+// existem vários métodos, para mudar várias tags, ver mais em : https://www.w3schools.com/js/js_htmldom.asp
+
 
 window.onload = function () {
 
-    var tit;
+	console.log("abriu!!!");
 
-    // obtendo o elemento por id, name, class, tag ou seletor css :
+	var texto = document.getElementById("texto");
+	
+	texto.onmouseover = function(){
+		document.getElementById('aviso').style.display = 'block';
+	}
+	texto.onmouseout = function(){
+		document.getElementById('aviso').style.display = 'none';
+	}
 
+	//
 
-    tit = document.getElementById("tit_id"); // seletor id
-    document.write(tit+"<br>");
-
-    tit = document.getElementsByName("tit_name"); // seletor name
-    document.write(tit+"<br>");
-
-    tit = document.getElementsByClassName("tit_class"); // seletor Class
-    document.write(tit+"<br>");
-
-    tit = document.getElementsByTagName("h2"); // seletor tag
-    document.write(tit+"<br>");
-
-    document.body.style.backgroundColor = "#ccc"; // dom html api   
+	texto.onclick = function(){
+		document.getElementsByTagName('p')[0].innerHTML = `Vc está em ${window.document.URL}`;
+		document.getElementsByTagName('p')[1].innerHTML = `===> DÊ Dois CLICKs !!!`;
+	}
+	texto.ondblclick = function(){
+		document.getElementsByTagName('p')[1].innerHTML = `..... Vc deu Dois CLICKs ....`;
+		document.querySelector('p.r3').innerHTML = "DOM"
+	}	
 
 }
