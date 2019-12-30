@@ -1,0 +1,27 @@
+{
+  "name": "teste24",
+  "version": "1.0.0",
+  "description": "Teste com Módulos",
+  "main": "js/main.js",
+  "scripts": {
+    "test": "test",
+    "start": "webpack --watch --config config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/evertonmessias/js.git"
+  },
+  "keywords": [
+    "portfolio",
+    "evertonmessias",
+    "aulas",
+    "javascript",
+    "es6"
+  ],
+  "author": "Everton Messias",
+  "homepage": "http://ic.unicamp.br/~everton",
+  "devDependencies": {
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3"
+  }
+}
