@@ -1,29 +1,25 @@
 
 window.onload = function () {
     document.getElementById("botao").onclick = function () {
-        var calculo = new imcCalc(Number(document.getElementById("peso").value), Number(document.getElementById("altura").value));
-        document.getElementById("imc").innerHTML = `IMC = ${calculo.calcIMC()}`;
-        document.getElementById("cond").innerHTML = calculo.condicao();
-        console.log(calculo.peso, calculo.altura);
+        var calculo = imc(Number(document.getElementById("peso").value), Number(document.getElementById("altura").value));
+        document.getElementById("imc").innerHTML = `IMC = ${calculo.valor}`;
+        document.getElementById("cond").innerHTML = calculo.condicao;
+        console.log(calculo.valor, calculo.condicao);
     }
 }
-//Hoisting (elevação)
-function imcCalc(p, a) { // pode ser uma classe ...
-    this.peso = p;
-    this.altura = a;
-    this.calcIMC = () => {
-        if ((this.peso >= 20 && this.peso <= 200) && (this.altura >= 1 && this.altura <= 2.5)) {
-            return (this.peso / (Math.pow(this.altura, 2))).toFixed(0);
-        } else { return "Dados incorretos!" }
-    }
-    this.condicao = () => {
-        if (this.calcIMC() <= 17) { return "Muito abaixo"; }
-        else if (this.calcIMC() > 17 && this.calcIMC() <= 19) { return "Abaixo do peso"; }
-        else if (this.calcIMC() > 19 && this.calcIMC() <= 25) { return "Peso Normal"; }
-        else if (this.calcIMC() > 25 && this.calcIMC() <= 30) { return "Acima do peso"; }
-        else if (this.calcIMC() > 30 && this.calcIMC() <= 35) { return "Obesidade Leve"; }
-        else if (this.calcIMC() > 35 && this.calcIMC() <= 40) { return "Obesidade Severa"; }
-        else if (this.calcIMC() > 40) { return "Obesidade Mórbida"; }
-        else { return "Erro"; }
-    }
-}
+
+function imc(peso, altura) {
+    let valor = 0;let condicao = "";
+    if ((peso >= 20 && peso <= 200) && (altura >= 1 && altura <= 2.5)) {
+        valor = (peso / (Math.pow(altura, 2))).toFixed(0);
+    } else { valor = 0; }
+    if      (valor >= 1 && valor <= 17) { condicao = "Muito abaixo"; }
+    else if (valor > 17 && valor <= 19) { condicao = "Abaixo do peso"; }
+    else if (valor > 19 && valor <= 25) { condicao = "Peso Normal"; }
+    else if (valor > 25 && valor <= 30) { condicao = "Acima do peso"; }
+    else if (valor > 30 && valor <= 35) { condicao = "Obesidade Leve"; }
+    else if (valor > 35 && valor <= 40) { condicao = "Obesidade Severa"; }
+    else if (valor > 40) { condicao = "Obesidade Mórbida"; }
+    else { condicao = "Erro"; }
+    return {valor:valor,condicao:condicao};
+  }
