@@ -1,25 +1,46 @@
+// AJAX + DOM HTML
+// inserir dados em uma tabela e depois escrever num arquivo ....
 
 window.onload = function () {
-    document.getElementById("botao").onclick = function () {
-        var calculo = imc(Number(document.getElementById("peso").value), Number(document.getElementById("altura").value));
-        document.getElementById("imc").innerHTML = `IMC = ${calculo.valor}`;
-        document.getElementById("cond").innerHTML = calculo.condicao;
-        console.log(calculo.valor, calculo.condicao);
-    }
-}
 
-function imc(peso, altura) {
-    let valor = 0;let condicao = "";
-    if ((peso >= 20 && peso <= 200) && (altura >= 1 && altura <= 2.5)) {
-        valor = (peso / (Math.pow(altura, 2))).toFixed(0);
-    } else { valor = 0; }
-    if      (valor >= 1 && valor <= 17) { condicao = "Muito abaixo"; }
-    else if (valor > 17 && valor <= 19) { condicao = "Abaixo do peso"; }
-    else if (valor > 19 && valor <= 25) { condicao = "Peso Normal"; }
-    else if (valor > 25 && valor <= 30) { condicao = "Acima do peso"; }
-    else if (valor > 30 && valor <= 35) { condicao = "Obesidade Leve"; }
-    else if (valor > 35 && valor <= 40) { condicao = "Obesidade Severa"; }
-    else if (valor > 40) { condicao = "Obesidade Mórbida"; }
-    else { condicao = "Erro"; }
-    return {valor:valor,condicao:condicao};
-  }
+    var form = document.getElementById("form");
+
+    form.botao.onclick = function () {
+        if (form.peca.value && form.preco.value) {
+            var peca = form.peca.value;
+            var preco = form.preco.value;
+            var tab = document.getElementById("tabela");
+            var row = document.createElement('tr');
+            var cel0 = document.createElement('td');
+            var cel1 = document.createElement('td');
+            tab.append(row);
+            row.append(cel0);
+            row.append(cel1);
+            cel0.append(peca);
+            cel1.append(preco);
+            var texto = { Peça: peca, Preço: preco }
+            console.log("OK ==>", texto);
+
+            // salvar em arquivo:
+            var arquivo = "./testejson.json";
+            var dados = new ActiveXObject('Scripting.FileSystemObject');
+            var escrever = dados.CreateTextFile(arquivo, false);
+            escrever.WriteLine(texto); escrever.Close();
+
+            /*Função para abrir o arquivo
+            function AbreArquivo(arq) {
+                //o parametro arq é o endereço do txt
+                //carrega o txt
+                var arquivo = dados.OpenTextFile(arq, 1, true);
+                //varre o arquivo
+                while (!arquivo.AtEndOfStream) {
+                    //escreve o txt no TextArea
+                    document.getElementById(“texto”).value = arquivo.ReadAll();
+                }
+                //fecha o txt
+                arquivo.Close();
+            }*/
+        }
+
+    }
+}		
