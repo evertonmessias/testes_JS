@@ -22,25 +22,7 @@ window.onload = function () {
             console.log("OK ==>", texto);
 
             // salvar em arquivo:
-            var arquivo = "./testejson.json";
-            var dados = new ActiveXObject('Scripting.FileSystemObject');
-            var escrever = dados.CreateTextFile(arquivo, false);
-            escrever.WriteLine(texto); escrever.Close();
-
-            /*Função para abrir o arquivo
-            function AbreArquivo(arq) {
-                //o parametro arq é o endereço do txt
-                //carrega o txt
-                var arquivo = dados.OpenTextFile(arq, 1, true);
-                //varre o arquivo
-                while (!arquivo.AtEndOfStream) {
-                    //escreve o txt no TextArea
-                    document.getElementById(“texto”).value = arquivo.ReadAll();
-                }
-                //fecha o txt
-                arquivo.Close();
-            }*/
-        }
+            var arquivo = "./testejson.json";}
 
     }
 }		
