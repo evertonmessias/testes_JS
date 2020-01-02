@@ -2,6 +2,10 @@ window.onload = function () {
     var form = document.getElementById("form");
     var tab = document.getElementById("tabela");
 
+    function apagar(n){
+        console.log("APAGA",n);
+    }
+
     var db = openDatabase('teste21', '1.0', 'Exemplo', 2 * 1024 * 1024);
     
     db.transaction(function (resp) {
@@ -10,20 +14,15 @@ window.onload = function () {
 
     db.transaction(function (resp) {
         resp.executeSql('SELECT * from agenda', [], function (resp, resultados) {
-            var rows = resultados.rows;
+            var rows = resultados.rows;var tr = '';
             for (var i = 0; i < rows.length; i++) {                
-                var row = document.createElement('tr');
-                var cel0 = document.createElement('td');
-                var cel1 = document.createElement('td');
-                var cel2 = document.createElement('td');                
-                tab.append(row);
-                row.append(cel0);
-                row.append(cel1);
-                row.append(cel2);                
-                cel0.append(i+1);
-                cel1.append(rows[i].nome);
-                cel2.append(rows[i].email);
+                tr += '<tr onClick="apagar('+rows[i].id+')" id="linha">';
+                tr += "<td>"+rows[i].id+'</td>';
+                tr += '<td>'+rows[i].nome+'</td>';
+                tr += '<td>'+rows[i].email+'</td>';
+                tr += '</tr>'                
             }
+            tab.innerHTML = tr;
         });
     });
 

@@ -8,14 +8,30 @@
             text-align: center;
             display: block;
             position: relative;
-            margin: 0 auto;            
-            width: 500px;                       
+            margin: 0 auto;
+            width: 620px;
         }
-        input{width: 180px;font-size: 16px;}
-        #tabela{margin-left: 0px;}th{background-color: #ccc;}
-        td,th{
-            border: 1px solid silver;width: 200px;
-        }        
+
+        table {
+            width: 620px;
+        }
+
+        input {
+            width: 180px;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #aaa;
+        }
+
+        td,
+        th {
+            border: 1px solid silver;
+            width: 200px !important;
+        }
+        tr#linha{cursor: pointer;}
+        tr#linha:hover{background-color: #ddd;}
     </style>
     <script type="text/javascript" src="./teste21JS.js"></script>
 </head>
@@ -23,19 +39,20 @@
 <body>
     <div id="site">
         <h2>Agenda de E-mails</h2>
-        <form id="form">
+        <form id="form">            
             <input type="text" name="nome" placeholder="Nome" />&ensp;
-            <input type="text" name="email" placeholder="E-Mail"/><br><br>
+            <input type="text" name="email" placeholder="E-Mail" /><br><br>
             <input type="button" name="inserir" value="INSERIR" />
         </form>
         <br>
-        <table id="tabela">
+        <table id="cabec">
             <tr>
                 <th>Id</th>
                 <th>Nome</th>
                 <th>E-Mail</th>
             </tr>
         </table>
+        <table id="tabela"></table>
     </div>
 </body>
 
