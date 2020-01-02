@@ -9,11 +9,13 @@ function reload() {
 }
 
 function apagar(n) {
+    var saida = confirm(`Confirma Apagar ID = ${n} ?`);
+    if (saida){
     db.transaction(function (resp) {
         resp.executeSql("DELETE FROM agenda WHERE id = ?",[n]);
     });
     setTimeout(reload, 500);
-}
+}}
 
 window.onload = function () {
 
