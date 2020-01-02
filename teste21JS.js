@@ -26,6 +26,11 @@ window.onload = function () {
             }
         });
     });
+
+    function reload(){
+        window.location.reload();
+    }
+
     form.inserir.onclick = function () {
         if (form.nome.value && form.email.value) {
             var nome = form.nome.value;
@@ -34,8 +39,8 @@ window.onload = function () {
                 resp.executeSql('INSERT INTO agenda (nome, email) VALUES(?,?)', [nome, email]);
             });
             var texto = { Nome: nome, EMail: email }
-            console.log("OK ==>", texto);
-            window.location.reload();
+            console.log("OK ==>", texto); 
+            setTimeout(reload,500);           
         }
     }
 
