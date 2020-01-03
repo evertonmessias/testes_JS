@@ -1,23 +1,9 @@
+/* PROMISSES ; Pendente, Realizada, Rejeitada, Estabelecida */
 
-/*
-PROMISSES
-Pendente, Realizada, Rejeitada, Estabelecida
-*/
+// https://viacep.com.br/ws/13101014/json
 
-console.log("primeiro");
-
-setTimeout(function () {
-    console.log("Time - segundo")
-}, 0);
-
-console.log("terceiro");
-
-
-function jaRealizada() {
-    return Promise.resolve()
-}
-
-jaRealizada().then(() => {
-    console.log("Promisse");
-})
-
+ window.fetch('https://viacep.com.br/ws/13101014/json')
+.then(function(data){
+    data.json().then(function(endereco){
+        console.log(endereco)
+    })})
