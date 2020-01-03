@@ -1,76 +1,73 @@
-<!DOCTYPE html>
 <html>
+
 <head>
-<title>AJAX</title>
-<meta charset="UTF-8">
+    <meta charset="UTF-8" />
+    <style type="text/css">
+        .balao {
+            display: none;
+            background: #ddd;
+            border-radius: 15px;
+            width: 300px;
+            height: 100px;
+            position: absolute;
+            left: 500px;top: 38px;
+            font-size: 20pt;font-weight: bold;
+            line-height: 100px;text-align: center;
+            color: red;
+        }
+        .balao:after {
+            content: "";
+            width: 0;
+            height: 0;
+            position: absolute;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #ddd;
+            bottom: -20px;
+            left: 20%;
+        }
+        h1.texto {
+            cursor: pointer;
+            position: relative;
+            top:150px;
+            width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            color: #ccc;
+            background-color: #808080;
+        }
+        .novaclasse {
+            display: block;
+        }
+    </style>
+    <script src="./jquery.js"></script>
+	<script type="text/javascript">
+	// JQuery
 
-<style type="text/css">
-body{font-family: Arial;}
-#mensagem{border:1px solid red;width: 230px;position: relative;margin:0px auto;top: 20px;margin-bottom:-40px;padding: 10px;display: none;}
-.texto{color:red;text-align: center;}
-fieldset{display:block;position:relative;margin:0px auto;top:150px; width: 230px;}
-label{display:block;position:relative; background-color:silver;float:left; width: 70px;height:20px;padding:1px;text-align: left;}
-input{display:block;position:relative;float:right; width: 140px;}::placeholder{color: #696969;}
-button{display:block;position:relative; margin: 0px auto;}
-</style>
-
-<script src="./jquery.js"></script>
-
-
-<script type="text/javascript">
 $(function () {
-	
-	$("#botao").click(function () {
-	
-		if ($("#user").val() == "" || $("#pass").val() == "") {				
-		$("#user").attr("placeholder","ERRO!!");$("#pass").attr("placeholder","ERRO!!");			
-		$("#mensagem")
-			.html("Digite os Campos")
-			.slideDown(500)
-			.addClass("texto");		
-		}
+
+$(".texto").click(function(){
+	$(this).html("JQUERY").css({
+		"width":"600px",
+		"color":"red", 
+		"fontSize":"80px", 
+		"background-color":"silver"
 	});
-	
-	$("#user").click(function () {
-		$("#mensagem").slideUp(250);$("#user").attr("placeholder","");	
-	});
-	
-	$("#pass").click(function () {
-		$("#mensagem").slideUp(250);$("#pass").attr("placeholder","");	
-	});
-	
-	$("#mensagem").click(function () {
-		$(this).slideUp(250);	
-	});
+});
+
+$(".texto").hover(function(){
+	$(".balao").addClass("novaclasse");
+});
+$(".texto").mouseout(function(){
+	$(".balao").removeClass("novaclasse");
+});
 })
-
-</script> 
+	</script>
 </head>
+
 <body>
-
-<div id="mensagem"><p class="texto">Mensagens de Erro</p></div>
-
-<form id="form1">
-
-<fieldset><legend>AJAX</legend>
-
-
-<br><br><label for="user">&nbsp;Usuario&emsp;</label>
-
-<input type="text" id="user" name="user" maxlength="15" placeholder="seu usuario" />
-
-<br><br><label for="pass">&nbsp;Senha&emsp;</label>
-
-<input type="password" id="pass" name="pass" maxlength="8" placeholder="sua senha" />
- 
-<br><br><br>
-
-<button type="button" id="botao">Enviar</button>
-
-<br>
-
-</fieldset>
-
-</form>
+    <div class="balao">JAVASCRIPT</div>
+    <h1 class="texto">CLICK PASSE O MOUSE</h1>
 </body>
+
 </html>

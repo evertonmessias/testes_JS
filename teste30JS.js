@@ -1,23 +1,23 @@
-// JQuery
 
-$(function () {
+/*
+PROMISSES
+Pendente, Realizada, Rejeitada, Estabelecida
+*/
 
-    $(".texto").click(function(){
-        $(this).html("JQUERY").css({
-            "width":"600px",
-            "color":"red", 
-            "fontSize":"80px", 
-            "background-color":"silver"
-        });
-    });
+console.log("primeiro");
 
-    $(".texto").hover(function(){
-        $(".balao").addClass("novaclasse");
-    });
-    $(".texto").mouseout(function(){
-        $(".balao").removeClass("novaclasse");
-    });
+setTimeout(function () {
+    console.log("Time - segundo")
+}, 0);
+
+console.log("terceiro");
 
 
+function jaRealizada() {
+    return Promise.resolve()
+}
 
+jaRealizada().then(() => {
+    console.log("Promisse");
 })
+
