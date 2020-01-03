@@ -2,8 +2,11 @@
 
 // https://viacep.com.br/ws/13101014/json
 
- window.fetch('https://viacep.com.br/ws/13101014/json')
-.then(function(data){
-    data.json().then(function(endereco){
-        console.log(endereco)
-    })})
+var cep = '13101014';
+
+window.fetch('https://viacep.com.br/ws/'+cep+'/json')
+    .then((data) =>
+        data.json()
+            .then((endereco) =>console.log(endereco))
+            .catch(()=>console.log("Erro"))
+            )
