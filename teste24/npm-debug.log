@@ -7,7 +7,7 @@
 6 silly lifecycle teste24@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle teste24@1.0.0~start: teste24@1.0.0
 8 verbose lifecycle teste24@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle teste24@1.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/var/www/portfolio/testes/js/teste24/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+9 verbose lifecycle teste24@1.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/var/www/portfolio/testes/js/teste24/node_modules/.bin:/home/everton/bin:/home/everton/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 10 verbose lifecycle teste24@1.0.0~start: CWD: /var/www/portfolio/testes/js/teste24
 11 silly lifecycle teste24@1.0.0~start: Args: [ '-c', 'webpack --watch --config config.js' ]
 12 info lifecycle teste24@1.0.0~start: Failed to exec start script
