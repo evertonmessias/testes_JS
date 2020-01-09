@@ -11,8 +11,8 @@ app.get("/",(req, res)=>{
     res.send("Bem vindo ao App");
 })
 
-app.get("/sobre",(req,res)=>{
-    res.send("Minha pagina Sobre");
+app.get("/site",(req,res)=>{
+    res.sendFile(__dirname+"/html/index.html");
 })
 
 app.get("/:nome", (req,res)=>{
