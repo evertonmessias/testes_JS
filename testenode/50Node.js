@@ -1,13 +1,14 @@
 /* 
-Instalacao do Express:
-sudo npm install express --save
+Instalacao do Sequelize:
+npm install --save sequelize
+npm install --save mysql2
 */
 
 var express = require("express");
 
 var app = express();
 
-//Rotas
+// Rotas
 
 app.get("/",(req, res)=>{
     res.send("Bem vindo ao App");

@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "dev": "webpack --watch --config config.js",
+    "start": "nodemon 49Node.js"
+  },
+  "devDependencies" : {
+    "nodemon": "~1.3.8",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3"
+  }
+}
