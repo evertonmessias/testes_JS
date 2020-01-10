@@ -14,7 +14,7 @@ sequelize.authenticate()
     .then(() => console.log("SUCESSO")
         .catch(() => console.log("ERRO")));
 
-
+/*
 
 app.get("/",(req, res)=>{
     res.send("Bem vindo ao App");
