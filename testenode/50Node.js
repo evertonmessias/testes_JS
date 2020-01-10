@@ -4,11 +4,17 @@ npm install --save sequelize
 npm install --save mysql2
 */
 
-var express = require("express");
+const Sequelize = require("sequelize");
+const sequelize = new Sequelize('temp', 'root', 'efc2505xx', {
+    host: 'localhost',
+    dialect: 'mysql'
+});
 
-var app = express();
+sequelize.authenticate()
+    .then(() => console.log("SUCESSO")
+        .catch(() => console.log("ERRO")));
 
-// Rotas
+
 
 app.get("/",(req, res)=>{
     res.send("Bem vindo ao App");
@@ -22,6 +28,8 @@ app.get("/:nome", (req,res)=>{
     res.send(`<h1>Ola ${req.params.nome}</h1>`);
 })
 
-app.listen(8082, ()=>{
-    console.log("Servidor rodando na porta 8082");
+app.listen(8081, ()=>{
+    console.log("Servidor rodando na porta 8081");
 });
+
+*/
