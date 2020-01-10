@@ -7,6 +7,8 @@ var express = require("express");
 
 var app = express();
 
+// Rotas
+
 app.get("/",(req, res)=>{
     res.send("Bem vindo ao App");
 })
