@@ -1,6 +1,6 @@
 var http = require('http');
 
-var porta = 8082;
+var porta = 8080;
 
 http.createServer(function(req,res){
     res.end("<h1>Ola</h1>");

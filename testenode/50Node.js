@@ -22,6 +22,6 @@ app.get("/:nome", (req,res)=>{
     res.send(`<h1>Ola ${req.params.nome}</h1>`);
 })
 
-app.listen(8081, ()=>{
-    console.log("Servidor rodando na porta 8081");
+app.listen(8082, ()=>{
+    console.log("Servidor rodando na porta 8082");
 });
