@@ -1,6 +1,9 @@
 /* 
 Instalacao do Express:
 sudo npm install express --save
+
+Instalacao do Nodemon:
+sudo npm install nodemon -g
 */
 
 var express = require("express");
