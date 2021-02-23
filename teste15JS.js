@@ -2,8 +2,7 @@ function enviar() {
 	var form1 = document.getElementById("form1"); 
 	if (form1.rg.value == '' || form1.cep.value == '' || form1.data.value == '' || form1.tel.value == '' || form1.cpf.value == ''/* || form1.cnpj.value == ''*/) {
 		alert("DADOS INCORRETOS");
-		return false;}
-		
+		return false;}		
 	else {
 		alert("ENVIADO COM SUCESSO");
 		document.write("<br><br>");
@@ -13,6 +12,5 @@ function enviar() {
 		document.write("Data:&nbsp;" + form1.data.value + "<br>");
 		document.write("Cel&nbsp;:&nbsp;" + form1.tel.value + "<br>");
 		document.write("CPF&nbsp;:&nbsp;" + form1.cpf.value + "<br>");
-
 		}	
 }

@@ -5,9 +5,7 @@ window.onload = function () {
     ex0.onclick = function(){
         window.location.reload();
     }
-
-    // Escopos
-    
+    // Escopos    
     ex1.onclick = function () {
         // Escopo Global
         variavelWindowGlobal = "Evite usar Variavel super Global no Window";
