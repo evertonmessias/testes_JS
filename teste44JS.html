@@ -51,7 +51,7 @@
 		}
 
 		#BlocoTab .ativa span,
-		#BlocoTab .selected span {
+		#BlocoTab .selected span {			
 			color: #fff
 		}
 
@@ -72,6 +72,8 @@
 			display: none;
 			height: 100%;
 			color: #fff;
+			font-size: 50px;
+			margin-top: 10px;
 		}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -82,8 +84,8 @@
 			$(".aba").click(function () {
 				$(".aba").removeClass("selected");
 				$(this).addClass("selected");
-				var indice = $(this).parent().index();
-				indice++;
+				var indice = $(this).attr("value");
+				console.log(indice);		
 				$(".conteudo").hide();
 				$(".conteudo" + indice).show();
 			});
@@ -112,22 +114,22 @@
 	<div id="BlocoTab">
 		<ul class="abas">
 			<li>
-				<div class="aba">
+				<div value="1" class="aba">
 					<span>Tab 1</span>
 				</div>
 			</li>
 			<li>
-				<div class="aba">
+				<div value="2" class="aba">
 					<span>Tab 2</span>
 				</div>
 			</li>
 			<li>
-				<div class="aba">
+				<div value="3" class="aba">
 					<span>Tab 3</span>
 				</div>
 			</li>
 			<li>
-				<div class="aba">
+				<div value="4" class="aba">
 					<span>Tab 4</span>
 				</div>
 			</li>
