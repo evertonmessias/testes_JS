@@ -13,7 +13,7 @@
 		#BlocoTab {
 			display: block;
 			position: absolute;
-			left: 35%;
+			left: 45%;
 			top: 90%;
 		}
 
@@ -25,9 +25,6 @@
 			float: left;
 			list-style: none;
 			margin-left: 2px;
-		}
-
-		#BlocoTab .aba {
 			width: 100px;
 			height: 30px;
 			line-height: 25px;
@@ -40,29 +37,8 @@
 			cursor: pointer;
 		}
 
-		#BlocoTab .ativa {
-			width: 100px;
-			height: 30px;
-			border: solid 1 px;
-			border-radius: 3px;
-			text-align: center;
-			padding-top: 5px;
+		#BlocoTab .abas li:hover {
 			background: #aaa;
-		}
-
-		#BlocoTab .ativa span,
-		#BlocoTab .selected span {			
-			color: #fff
-		}
-
-		#BlocoTab .selected {
-			width: 100px;
-			height: 30px;
-			border: solid 1 px;
-			border-radius: 3px;
-			text-align: center;
-			padding-top: 5px;
-			background: #666
 		}
 
 		.conteudo {
@@ -75,62 +51,59 @@
 			font-size: 50px;
 			margin-top: 10px;
 		}
+
+		.conteudo span {
+			font-size: 150px;
+		}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script type="text/javascript">
 		$(function () {
 			$(".conteudo1").show();
 			$(".abas li:first div").addClass("selected");
-			$(".aba").click(function () {
-				$(".aba").removeClass("selected");
-				$(this).addClass("selected");
-				var indice = $(this).attr("value");
-				console.log(indice);		
-				$(".conteudo").hide();
-				$(".conteudo" + indice).show();
+
+			var pag = 1;
+
+			$(".prev").click(function () {
+				if (pag > 1) {
+					pag--;
+					console.log(pag);
+					$(".conteudo").hide();
+					$(".conteudo" + pag).show();
+				}
 			});
 
-			$(".aba").hover(
-				function () { $(this).addClass("ativa") },
-				function () { $(this).removeClass("ativa") }
-			);
+			$(".next").click(function () {
+				if (pag < 4) {
+					pag++;
+					console.log(pag);
+					$(".conteudo").hide();
+					$(".conteudo" + pag).show();
+				}
+			});
+
+
 
 		});
 	</script>
 </head>
 
 <body>
-
-	<div class="conteudo conteudo1"> Conteúdo da aba 1.1 </div>
-	<div class="conteudo conteudo1"> Conteúdo da aba 1.2 </div>
-	<div class="conteudo conteudo2"> Conteúdo da aba 2.1 </div>
-	<div class="conteudo conteudo2"> Conteúdo da aba 2.2 </div>
-	<div class="conteudo conteudo3"> Conteúdo da aba 3.1 </div>
-	<div class="conteudo conteudo3"> Conteúdo da aba 3.2 </div>
-	<div class="conteudo conteudo4"> Conteúdo da aba 4.1 </div>
-	<div class="conteudo conteudo4"> Conteúdo da aba 4.2 </div>
-
+	<div class="conteudo conteudo1"> Conteúdo da aba <span>1</span></div>
+	<div class="conteudo conteudo2"> Conteúdo da aba <span>2</span></div>
+	<div class="conteudo conteudo3"> Conteúdo da aba <span>3</span></div>
+	<div class="conteudo conteudo4"> Conteúdo da aba <span>4</span></div>
 
 	<div id="BlocoTab">
 		<ul class="abas">
 			<li>
-				<div value="1" class="aba">
-					<span>Tab 1</span>
+				<div class="prev">
+					<span>Anterior</span>
 				</div>
 			</li>
 			<li>
-				<div value="2" class="aba">
-					<span>Tab 2</span>
-				</div>
-			</li>
-			<li>
-				<div value="3" class="aba">
-					<span>Tab 3</span>
-				</div>
-			</li>
-			<li>
-				<div value="4" class="aba">
-					<span>Tab 4</span>
+				<div class="next">
+					<span>Próximo</span>
 				</div>
 			</li>
 		</ul>
